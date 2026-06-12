@@ -1,0 +1,52 @@
+# Agent & IDE configuration
+.agent/
+.opencode/
+
+# Mockups & design references
+mockups/
+Rererecinas/
+
+# OpenSpec
+openspec/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+
+# Temp files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node (if used later)
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+build/
