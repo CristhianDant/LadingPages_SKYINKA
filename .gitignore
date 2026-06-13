@@ -35,7 +35,7 @@ __pycache__/
 convertir_medios.py
 
 # videos (usar CDN o storage externo)
-public/video/
+public/video/hero.mp4
 
 # misc
 mockups/
