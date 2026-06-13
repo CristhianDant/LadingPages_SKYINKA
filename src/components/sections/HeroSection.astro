@@ -2,9 +2,13 @@
 ---
 
 <section class="hero-section">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="https://drive.google.com/uc?export=download&id=13ZUVd-oAj-eO05-qnUBu3zZBZrnLM1un" type="video/mp4">
-  </video>
+  <iframe 
+    class="hero-video" 
+    src="https://drive.google.com/file/d/13ZUVd-oAj-eO05-qnUBu3zZBZrnLM1un/preview" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen
+    frameborder="0"
+  ></iframe>
   <div class="hero-overlay"></div>
   <div class="hero-content container">
     <h1 class="h1-hero text-primary">
@@ -30,6 +34,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: none;
   }
 
   .hero-overlay {
@@ -41,6 +46,7 @@
       rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 1) 100%
     );
+    z-index: 1;
   }
 
   .hero-content {
