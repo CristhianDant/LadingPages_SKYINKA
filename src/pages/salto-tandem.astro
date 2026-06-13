@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import TandemHero from '../components/sections/TandemHero.astro';
+import RequirementsList from '../components/sections/RequirementsList.astro';
+import BMICalculator from '../components/interactive/BMICalculator.astro';
+import PackageCard from '../components/sections/PackageCard.astro';
+import FAQAccordion from '../components/interactive/FAQAccordion.astro';
+import ActivityGrid from '../components/sections/ActivityGrid.astro';
+import Footer from '../components/sections/Footer.astro';
+import MenuOverlay from '../components/interactive/MenuOverlay.astro';
+---
+
+<BaseLayout
+  title="Salto Tándem - Skydive Inka Perú"
+  description="Vive la experiencia de salto tándem en Pisco, Perú. Salta con instructors certificados y disfruta de vistas increíbles."
+>
+  <Header />
+  <MenuOverlay />
+  <main>
+    <TandemHero />
+    <RequirementsList />
+    <BMICalculator />
+    <PackageCard />
+    <FAQAccordion />
+    <ActivityGrid />
+  </main>
+  <Footer />
+</BaseLayout>

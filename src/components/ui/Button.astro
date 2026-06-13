@@ -1,0 +1,80 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'whatsapp' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const sizes = {
+  sm: 'padding: 10px 20px; font-size: 12px;',
+  md: 'padding: 12px 25px; font-size: 14px;',
+  lg: 'padding: 20px 40px; font-size: 16px;'
+};
+
+const variants = {
+  primary: 'background-color: var(--primary-blue); color: var(--text-primary);',
+  secondary: 'background-color: var(--bg-neutral); color: var(--text-primary);',
+  whatsapp: 'background-color: var(--whatsapp-green); color: var(--text-primary);',
+  outline: 'background-color: transparent; color: var(--text-primary); border: 1px solid var(--text-primary);'
+};
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  class:list={['btn', `btn-${variant}`, className]}
+  style={`${sizes[size]} ${variants[variant]}`}
+  {...rest}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark) !important;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--gray-dark) !important;
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #1ebe5d !important;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--text-primary) !important;
+    color: var(--bg-dark) !important;
+  }
+</style>

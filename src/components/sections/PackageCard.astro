@@ -1,0 +1,217 @@
+---
+const addons = [
+  { name: 'Video y Fotos HD', price: 'S/. 150' },
+  { name: 'DVD Edición Profesional', price: 'S/. 200' },
+  { name: 'Transporte desde Lima', price: 'S/. 100' },
+  { name: 'Seguro de vida adicional', price: 'S/. 50' },
+  { name: 'Certificado de vuelo', price: 'Incluido' }
+];
+---
+
+<section id="paquetes" class="packages-section">
+  <div class="container">
+    <h2 class="h2 text-primary packages-title">¡Prepárate para saltar!</h2>
+    <div class="package-card">
+      <div class="package-header">
+        <span class="package-location">📍</span>
+        <h3 class="package-name">Base<br />Pisco</h3>
+        <p class="package-price">S/. 2,199</p>
+        <div class="package-buttons">
+          <a href="#reservar" class="btn-reservar">Reservar</a>
+          <a href="#vale" class="btn-vale">Vale de Regalo</a>
+        </div>
+        <div class="package-desc">
+          <span class="desc-icon">🪂</span>
+          <p>Disfruta de vistas aéreas impresionantes de la costa de Pisco y el desierto</p>
+        </div>
+      </div>
+
+      <div class="package-addons">
+        <h4 class="addons-title">Paquetes y adicionales</h4>
+        <div class="addons-list">
+          {addons.map((addon) => (
+            <div class="addon-item">
+              <span class="addon-check">✓</span>
+              <span class="addon-name">{addon.name}</span>
+              <span class="addon-price">{addon.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .packages-section {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+  }
+
+  .packages-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .package-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-neutral);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .package-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .package-location {
+    font-size: 24px;
+    color: var(--text-secondary);
+  }
+
+  .package-name {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .package-price {
+    font-family: var(--font-body);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .package-buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn-reservar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background-color: var(--pink-accent);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-reservar:hover {
+    opacity: 0.9;
+  }
+
+  .btn-vale {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background-color: var(--gray-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-vale:hover {
+    background-color: var(--text-dark);
+  }
+
+  .package-desc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .desc-icon {
+    font-size: 16px;
+  }
+
+  .package-addons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .addons-title {
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .addons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .addon-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--bg-dark);
+  }
+
+  .addon-check {
+    color: var(--primary-blue);
+    font-weight: 600;
+  }
+
+  .addon-name {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .addon-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .package-card {
+      padding: 32px 20px;
+    }
+
+    .package-name {
+      font-size: 40px;
+    }
+
+    .package-price {
+      font-size: 24px;
+    }
+
+    .package-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-reservar,
+    .btn-vale {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,195 @@
+---
+const testimonials = [
+  {
+    name: 'María López',
+    quote: 'Una experiencia absolutamente increíble. El equipo fue profesional de principio a fin. Saltar desde 15,000 pies fue el momento más emocionante de mi vida. ¡Definitivamente volveré!',
+    rating: 5,
+    image: '/images/AFF.webp'
+  },
+  {
+    name: 'Carlos García',
+    quote: 'Venía con mucho miedo pero el equipo me hizo sentir seguro en todo momento. La vista desde arriba es impresionante. 100% recomendado para buscar una dosis de adrenalina.',
+    rating: 5,
+    image: '/images/APERTURA.webp'
+  },
+  {
+    name: 'Ana Martínez',
+    quote: 'Lo hice como regalo de cumpleaños y fue la mejor decisión. La atención personalizada y las instalaciones de primer nivel hacen que toda la experiencia sea inolvidable.',
+    rating: 5,
+    image: '/images/FOTO_FINTA.webp'
+  }
+];
+---
+
+<section id="testimonios" class="testimonials-section" x-data="{ active: 0 }">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="testimonials-title-group">
+        <span class="testimonials-subtitle">Testimonios</span>
+        <h2 class="h2 testimonials-main-title">Lo que dicen nuestros clientes</h2>
+      </div>
+      <div class="testimonials-dots">
+        {testimonials.map((_, index) => (
+          <button
+            class:list={['dot', { 'active': true }]}
+            :class={`{ 'active': active === ${index} }`}
+            @click={`active = ${index}`}
+            aria-label={`Testimonio ${index + 1}`}
+          ></button>
+        ))}
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial, index) => (
+        <div
+          class="testimonial-card"
+          :class={`{ 'active': active === ${index} }`}
+          style={`display: ${index === 0 ? 'block' : 'none'}`}
+          x-show={`active === ${index}`}
+          x-transition
+        >
+          <div class="testimonial-stars">
+            {Array(testimonial.rating).fill('★').map(() => (
+              <span class="star">★</span>
+            ))}
+          </div>
+          <p class="testimonial-quote">{testimonial.quote}</p>
+          <div class="testimonial-author">
+            <img src={testimonial.image} alt={testimonial.name} class="author-avatar" />
+            <div class="author-info">
+              <span class="author-name">{testimonial.name}</span>
+              <span class="author-role">Cliente Verificado</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background-color: var(--bg-celeste);
+    padding: var(--section-padding) 0;
+  }
+
+  .testimonials-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+
+  .testimonials-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .testimonials-subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pink-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .testimonials-main-title {
+    color: var(--text-dark);
+  }
+
+  .testimonials-dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--gray-medium);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .dot.active {
+    width: 40px;
+    height: 8px;
+    background-color: var(--pink-accent);
+    border-radius: 4px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 4px;
+  }
+
+  .star {
+    color: var(--accent-gold);
+    font-size: 16px;
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-primary);
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .author-name {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .author-role {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  }
+</style>

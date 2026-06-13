@@ -1,52 +1,40 @@
-# Agent & IDE configuration
-.agent/
-.opencode/
+# build output
+dist/
+.astro/
 
-# Mockups & design references
-mockups/
-Rererecinas/
+# dependencies
+node_modules/
 
-# OpenSpec
-openspec/
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# OS generated files
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-Desktop.ini
 
-# Editor files
-*.swp
-*.swo
-*~
+# editors
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
 
-# Logs
-*.log
-logs/
+# tool configs
+.agent/
+.agents/
+.opencode/
+.playwright-mcp/
+openspec/
 
-# Temp files
-tmp/
-temp/
-*.tmp
-*.bak
+# python
+*.pyc
+__pycache__/
+convertir_medios.py
 
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Node (if used later)
-node_modules/
-package-lock.json
-
-# Build outputs
-dist/
-build/
+# misc
+mockups/
+Rererecinas/
+skills-lock.json

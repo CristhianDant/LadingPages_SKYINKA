@@ -1,0 +1,123 @@
+---
+const activities = [
+  {
+    name: 'Escuela de Paracaidismo',
+    price: 'S/. 10,000',
+    color: 'var(--bg-neutral)',
+    link: '#escuelas'
+  },
+  {
+    name: 'Salto Certificado',
+    price: 'S/. 599',
+    color: 'var(--pink-accent)',
+    link: '#certificado'
+  },
+  {
+    name: 'Vuelo en Girocóptero',
+    price: 'S/. 1,099',
+    color: 'var(--bg-neutral)',
+    link: '#vuelos'
+  },
+  {
+    name: 'Vuelo Interior',
+    price: 'S/. 249',
+    color: 'var(--accent-gold)',
+    link: '#vuelo-interior'
+  }
+];
+---
+
+<section id="actividades" class="activities-section">
+  <div class="container">
+    <h2 class="h2 text-primary activities-title">Próxima Actividad</h2>
+    <div class="activities-grid">
+      {activities.map((activity) => (
+        <div
+          class="activity-card"
+          style={`background-color: ${activity.color}`}
+        >
+          <h3 class="activity-name">{activity.name}</h3>
+          <p class="activity-price">{activity.price}</p>
+          <a href={activity.link} class="activity-btn">Ver Detalles</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .activities-section {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+  }
+
+  .activities-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .activity-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    transition: var(--transition);
+  }
+
+  .activity-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .activity-name {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .activity-price {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .activity-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .activity-btn:hover {
+    background-color: var(--primary-dark);
+  }
+
+  @media (max-width: 1024px) {
+    .activities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

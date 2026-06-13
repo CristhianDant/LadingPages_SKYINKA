@@ -1,0 +1,52 @@
+---
+interface Props {
+  variant?: 'dark' | 'light' | 'accent';
+  padding?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  variant = 'dark',
+  padding = 'md',
+  class: className = '',
+  ...rest
+} = Astro.props;
+---
+
+<div class:list={['card', `card-${variant}`, `card-pad-${padding}`, className]} {...rest}>
+  <slot />
+</div>
+
+<style>
+  .card {
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+
+  .card-dark {
+    background-color: var(--bg-neutral);
+    color: var(--text-primary);
+  }
+
+  .card-light {
+    background-color: var(--white);
+    color: var(--text-dark);
+  }
+
+  .card-accent {
+    background-color: var(--pink-accent);
+    color: var(--text-primary);
+  }
+
+  .card-pad-sm {
+    padding: 16px;
+  }
+
+  .card-pad-md {
+    padding: 24px;
+  }
+
+  .card-pad-lg {
+    padding: 48px;
+  }
+</style>

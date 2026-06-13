@@ -1,0 +1,297 @@
+---
+const footerLinks = [
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Tándem', href: '/salto-tandem' },
+  { label: 'Alumnos Paracaidistas', href: '#alumnos' },
+  { label: 'Preguntas frecuentes', href: '#faq' },
+  { label: 'Blog', href: '#blog' },
+  { label: 'Documentos', href: '#docs' },
+  { label: 'Tienda', href: '#tienda' },
+  { label: 'Reservas', href: '#reservas' },
+  { label: 'Manuales', href: '#manuales' }
+];
+
+const contactInfo = {
+  email: 'info@paracaidismo.pe',
+  phones: ['+51 999 999 999', '+51 999 999 999']
+};
+
+const socialLinks = [
+  { name: 'Facebook', icon: 'FB', href: '#facebook' },
+  { name: 'YouTube', icon: 'YT', href: '#youtube' },
+  { name: 'Instagram', icon: 'IG', href: '#instagram' }
+];
+---
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-container">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <h3 class="footer-brand-title">Skydive Inka Perú</h3>
+        <p class="footer-brand-desc">
+          En SKIP nos dedicamos a instruir, capacitar, entrenar y practicar el Paracaidismo Deportivo.
+          Además con nosotros podrás realizar el salto Tándem con total seguridad.
+        </p>
+        <div class="footer-social-icons">
+          {socialLinks.map((social) => (
+            <a href={social.href} class="social-icon" aria-label={social.name}>
+              {social.icon}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Links Column -->
+      <div class="footer-links">
+        <h4 class="footer-column-title">Links</h4>
+        <nav class="footer-nav">
+          {footerLinks.map((link) => (
+            <a href={link.href} class="footer-link">{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <h4 class="footer-column-title">Contacto</h4>
+        <div class="contact-items">
+          <a href={`mailto:${contactInfo.email}`} class="contact-item">
+            <span class="contact-icon">✉</span>
+            {contactInfo.email}
+          </a>
+          {contactInfo.phones.map((phone) => (
+            <a href={`tel:${phone.replace(/\s/g, '')}`} class="contact-item">
+              <span class="contact-icon">📞</span>
+              {phone}
+            </a>
+          ))}
+        </div>
+        <div class="footer-forecast">
+          <h4 class="footer-column-title">Pronóstico</h4>
+          <a href="#windy" class="footer-link">Windy</a>
+          <a href="#mark" class="footer-link">Mark Schulze</a>
+        </div>
+      </div>
+
+      <!-- Logo Column -->
+      <div class="footer-logo">
+        <span class="skip-logo">SKIP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <span class="copyright">© 2022 SkydiveInka</span>
+      <div class="legal-links">
+        <a href="#terminos">Términos y Condiciones</a>
+        <a href="#privacidad">Políticas de Privacidad</a>
+        <a href="#reclamaciones">Libro de Reclamaciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--bg-neutral);
+  }
+
+  .footer-top {
+    padding: var(--footer-padding) 0;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 320px 200px 280px 180px;
+    gap: 60px;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-brand-title {
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .footer-brand-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 300px;
+  }
+
+  .footer-social-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+
+  .social-icon:hover {
+    background-color: var(--primary-blue);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footer-column-title {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+  }
+
+  .footer-link:hover {
+    color: var(--text-primary);
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+  }
+
+  .contact-item:hover {
+    color: var(--text-primary);
+  }
+
+  .contact-icon {
+    font-size: 14px;
+  }
+
+  .footer-forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .skip-logo {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    color: var(--text-primary);
+  }
+
+  .footer-bottom {
+    background-color: var(--bg-dark);
+    padding: 24px 0;
+  }
+
+  .footer-bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .copyright {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .legal-links a {
+    font-size: 12px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+  }
+
+  .legal-links a:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 1024px) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-logo {
+      display: none;
+    }
+
+    .footer-bottom-container {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .legal-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

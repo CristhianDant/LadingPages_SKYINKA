@@ -1,0 +1,197 @@
+---
+const experiences = [
+  {
+    title: 'Vuelo Interior',
+    description: 'Experimenta la adrenalina de volar en una cámara de viento vertical, simulando el sensation del paracaidismo.',
+    price: 'S/. 249',
+    image: '/images/FOTO_FINTA.webp',
+    bgColor: 'var(--bg-celeste)',
+    textColor: 'var(--text-dark)'
+  },
+  {
+    title: 'Salto Certificado',
+    description: 'Obtén tu certificación de paracaidista y salta de forma independiente con licencia.',
+    price: 'S/. 599',
+    image: '/images/FOTO_2INSTRUCTORES.webp',
+    bgColor: 'var(--pink-accent)',
+    textColor: 'var(--text-primary)'
+  }
+];
+---
+
+<section id="experiencias" class="experiences-section">
+  <div class="container">
+    <div class="experiences-header">
+      <h2 class="h2 text-primary">Experiencias Extraordinarias</h2>
+    </div>
+    <div class="experiences-grid">
+      {experiences.map((exp, index) => (
+        <div class:list={['experience-row', { 'reverse': index % 2 !== 0 }]}>
+          <div class="experience-image-wrapper">
+            <img src={exp.image} alt={exp.title} class="experience-image" />
+            <div
+              class="experience-text"
+              style={`background-color: ${exp.bgColor}; color: ${exp.textColor}`}
+            >
+              <div class="experience-content">
+                <h3 class="h3">{exp.title}</h3>
+                <p class="experience-desc">{exp.description}</p>
+                <p class="experience-price">{exp.price}</p>
+                <a href="#reservar" class="experience-btn">Reservar Ahora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div class="experience-full">
+        <img src="/images/avionalumnos.jpg" alt="Experiencia completa" class="experience-image-full" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experiences-section {
+    background-color: var(--bg-dark);
+    padding: var(--section-padding) 0;
+  }
+
+  .experiences-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .experiences-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .experience-row {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  .experience-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .experience-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .experience-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: 2;
+  }
+
+  .experience-row.reverse .experience-text {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  .experience-row:hover .experience-text {
+    transform: translateX(0);
+  }
+
+  .experience-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+  }
+
+  .experience-desc {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .experience-price {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .experience-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    width: fit-content;
+  }
+
+  .experience-btn:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .experience-full {
+    height: 400px;
+    overflow: hidden;
+  }
+
+  .experience-image-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .experience-row {
+      height: auto;
+    }
+
+    .experience-image-wrapper {
+      height: 300px;
+    }
+
+    .experience-text {
+      width: 100%;
+      transform: translateY(100%);
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      height: auto;
+      min-height: 50%;
+      padding: 24px;
+    }
+
+    .experience-row.reverse .experience-text {
+      transform: translateY(100%);
+      left: 0;
+      right: 0;
+    }
+
+    .experience-row:hover .experience-text {
+      transform: translateY(0);
+    }
+
+    .experience-full {
+      height: 300px;
+    }
+  }
+</style>

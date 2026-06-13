@@ -1,0 +1,79 @@
+---
+interface Props {
+  name?: string;
+  checked?: boolean;
+  label?: string;
+  class?: string;
+}
+
+const {
+  name,
+  checked = false,
+  label,
+  class: className = '',
+  ...rest
+} = Astro.props;
+---
+
+<label class:list={['checkbox-wrapper', className]}>
+  <input
+    type="checkbox"
+    name={name}
+    checked={checked}
+    class="checkbox-input"
+    {...rest}
+  />
+  <span class="checkbox-custom"></span>
+  {label && <span class="checkbox-label">{label}</span>}
+</label>
+
+<style>
+  .checkbox-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-neutral);
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+
+  .checkbox-input:checked + .checkbox-custom {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+  }
+
+  .checkbox-input:checked + .checkbox-custom::after {
+    content: '';
+    width: 6px;
+    height: 12px;
+    border: solid var(--text-primary);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+  }
+
+  .checkbox-label {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--gray-dark);
+  }
+</style>

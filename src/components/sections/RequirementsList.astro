@@ -1,0 +1,125 @@
+---
+const requirements = [
+  {
+    title: 'Edad',
+    description: 'Debes tener entre 18 y 65 años para realizar un salto tándem.'
+  },
+  {
+    title: 'Peso',
+    description: 'El peso máximo permitido es de 100 kg (220 lbs). El peso mínimo es de 40 kg (88 lbs).'
+  },
+  {
+    title: 'Condición Física',
+    description: 'Debes estar en buen estado de salud. No se permiten personas con problemas cardíacos, epilepsia o condiciones similares.'
+  },
+  {
+    title: 'Formulario de Consentimiento',
+    description: 'Debes firmar un formulario de consentimiento informado antes del salto.'
+  }
+];
+---
+
+<section id="requisitos" class="requirements-section">
+  <div class="container">
+    <div class="requirements-grid">
+      <!-- Left Column -->
+      <div class="requirements-left">
+        <h2 class="h2 requirements-title">Requisitos</h2>
+        <p class="requirements-desc">
+          Para disfrutar de esta experiencia, necesitas cumplir con estos requisitos básicos.
+          Tu seguridad es nuestra prioridad.
+        </p>
+      </div>
+
+      <!-- Right Column -->
+      <div class="requirements-right">
+        {requirements.map((req) => (
+          <div class="requirement-item">
+            <div class="requirement-checkbox"></div>
+            <div class="requirement-content">
+              <h4 class="requirement-title">{req.title}</h4>
+              <p class="requirement-desc">{req.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .requirements-section {
+    background-color: var(--white);
+    padding: 80px 0;
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .requirements-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .requirements-title {
+    color: var(--text-dark);
+  }
+
+  .requirements-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-medium);
+  }
+
+  .requirements-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .requirement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .requirement-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-neutral);
+    background-color: var(--white);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .requirement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .requirement-title {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .requirement-desc {
+    font-size: 13px;
+    color: var(--gray-medium);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .requirements-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

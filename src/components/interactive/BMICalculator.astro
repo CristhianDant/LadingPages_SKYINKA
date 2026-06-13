@@ -1,0 +1,287 @@
+---
+---
+
+<section id="calculadora-imc" class="bmi-section" x-data="bmiCalculator()">
+  <div class="container">
+    <h2 class="h2 bmi-title">Calculadora de IMC</h2>
+    <div class="bmi-form">
+      <div class="bmi-row">
+        <label class="bmi-label">Peso (en libras):</label>
+        <input
+          type="number"
+          x-model="weight"
+          class="bmi-input"
+          placeholder="Ej: 150"
+          min="1"
+        />
+      </div>
+      <div class="bmi-row">
+        <label class="bmi-label">Altura (en pulgadas):</label>
+        <input
+          type="number"
+          x-model="height"
+          class="bmi-input"
+          placeholder="Ej: 70"
+          min="1"
+        />
+      </div>
+      <button class="bmi-btn" @click="calculate()">
+        Calcular
+      </button>
+    </div>
+
+    <!-- Resultado -->
+    <div class="bmi-result" x-show="result !== null" x-transition>
+      <div class="bmi-value">
+        <span class="bmi-number" x-text="result"></span>
+        <span class="bmi-label-text">IMC</span>
+      </div>
+      <div class="bmi-classification" :class="classificationClass">
+        <span x-text="classification"></span>
+      </div>
+      <div class="bmi-message" :class="messageClass">
+        <p x-text="message"></p>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="bmi-error" x-show="error" x-transition>
+      <p x-text="error"></p>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+function bmiCalculator() {
+  return {
+    weight: '',
+    height: '',
+    result: null,
+    classification: '',
+    classificationClass: '',
+    message: '',
+    messageClass: '',
+    error: '',
+
+    calculate() {
+      this.error = '';
+      this.result = null;
+
+      const weight = parseFloat(this.weight);
+      const height = parseFloat(this.height);
+
+      if (!weight || !height || weight <= 0 || height <= 0) {
+        this.error = 'Por favor, ingresa valores válidos para peso y altura.';
+        return;
+      }
+
+      // IMC = (peso_libras * 703) / (altura_pulgadas ^ 2)
+      const bmi = (weight * 703) / (height * height);
+      this.result = bmi.toFixed(1);
+
+      // Clasificación
+      if (bmi < 18.5) {
+        this.classification = 'Bajo peso';
+        this.classificationClass = 'underweight';
+        this.message = 'Tu IMC indica bajo peso. Consulta con nuestro equipo médico antes de reservar.';
+        this.messageClass = 'warning';
+      } else if (bmi < 25) {
+        this.classification = 'Normal';
+        this.classificationClass = 'normal';
+        this.message = '¡Excelente! Tu IMC está dentro del rango aceptable para realizar un salto tándem.';
+        this.messageClass = 'success';
+      } else if (bmi < 30) {
+        this.classification = 'Sobrepeso';
+        this.classificationClass = 'overweight';
+        this.message = 'Tu IMC indica sobrepeso. El peso máximo permitido es de 100 kg (220 lbs). Consulta con nuestro equipo.';
+        this.messageClass = 'warning';
+      } else {
+        this.classification = 'Obesidad';
+        this.classificationClass = 'obesity';
+        this.message = 'Tu IMC indica obesidad. Por tu seguridad, no es recomendable realizar un salto tándem. Consulta con nuestro equipo médico.';
+        this.messageClass = 'danger';
+      }
+    }
+  };
+}
+</script>
+
+<style>
+  .bmi-section {
+    background-color: var(--white);
+    padding: 60px 0;
+  }
+
+  .bmi-title {
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .bmi-form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .bmi-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .bmi-label {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-dark);
+    min-width: 180px;
+  }
+
+  .bmi-input {
+    width: 200px;
+    height: 40px;
+    padding: 0 12px;
+    background-color: var(--white);
+    border: 1px solid var(--border-neutral);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-dark);
+    transition: var(--transition);
+  }
+
+  .bmi-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+  }
+
+  .bmi-btn {
+    padding: 12px 32px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .bmi-btn:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .bmi-result {
+    max-width: 400px;
+    margin: 32px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background-color: var(--bg-celeste);
+    border-radius: var(--border-radius);
+  }
+
+  .bmi-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .bmi-number {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--text-dark);
+  }
+
+  .bmi-label-text {
+    font-size: 14px;
+    color: var(--gray-medium);
+  }
+
+  .bmi-classification {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: var(--border-radius);
+  }
+
+  .bmi-classification.underweight {
+    background-color: var(--primary-light);
+    color: var(--bg-dark);
+  }
+
+  .bmi-classification.normal {
+    background-color: #4CAF50;
+    color: var(--white);
+  }
+
+  .bmi-classification.overweight {
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+  }
+
+  .bmi-classification.obesity {
+    background-color: var(--pink-accent);
+    color: var(--white);
+  }
+
+  .bmi-message {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 12px;
+    border-radius: var(--border-radius);
+  }
+
+  .bmi-message.success {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+  }
+
+  .bmi-message.warning {
+    background-color: #FFF3E0;
+    color: #E65100;
+  }
+
+  .bmi-message.danger {
+    background-color: #FFEBEE;
+    color: #C62828;
+  }
+
+  .bmi-error {
+    max-width: 400px;
+    margin: 16px auto 0;
+    padding: 12px;
+    background-color: #FFEBEE;
+    color: #C62828;
+    font-size: 14px;
+    text-align: center;
+    border-radius: var(--border-radius);
+  }
+
+  @media (max-width: 768px) {
+    .bmi-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .bmi-label {
+      min-width: auto;
+    }
+
+    .bmi-input {
+      width: 100%;
+    }
+  }
+</style>

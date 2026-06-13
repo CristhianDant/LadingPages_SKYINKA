@@ -1,0 +1,233 @@
+/* ============================================================
+   Skydive Inka Perú - Design System Variables
+   Basado en DESIGN.md (Design System Specification Unificado)
+   ============================================================ */
+
+/* === Fuentes personalizadas === */
+@font-face {
+  font-family: 'Gotham';
+  src: url('https://cdn.prod.website-files.com/65f00869733520542e4a566f/6683deed65183e2355445b6a_Gotham-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bemartin 1';
+  src: url('https://cdn.prod.website-files.com/65f00869733520542e4a566f/65f7f94440ae1c68f88e033d_BEMartin-Regular%201.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* === Colores Principales (Cliente) === */
+  --primary-blue: #4D7CEA;
+  --primary-dark: #0059CB;
+  --primary-light: #7AD7FF;
+
+  /* === Fondos y Superficies === */
+  --bg-dark: #1B1B19;
+  --bg-neutral: #232424;
+  --bg-celeste: #F1F4F9;
+  --white: #FFFFFF;
+
+  /* === Textos === */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B1B3B3;
+  --text-dark: #000000;
+  --gray-dark: #333333;
+  --gray-medium: #666666;
+  --gray-text: #4B4B4B;
+
+  /* === Bordes y Acentos === */
+  --border-neutral: #E0E1E1;
+  --gray-light: #EBEBEB;
+  --accent-gold: #FFD100;
+  --pink-accent: #CC3366;
+  --whatsapp-green: #25D366;
+
+  /* === Tipografía === */
+  --font-heading: 'Bemartin 1', Impact, 'Arial Black', sans-serif;
+  --font-body: 'Arial', Helvetica, sans-serif;
+  --font-header: 'Gotham', 'Arial', sans-serif;
+
+  /* === Jerarquía Tipográfica === */
+  --h1-hero-size: 59px;
+  --h1-hero-line-height: 1.05;
+  --h2-size: 59px;
+  --h3-size: 36px;
+  --body-size: 14px;
+  --nav-size: 14.24px;
+  --nav-letter-spacing: 0.25px;
+
+  /* === Espaciado === */
+  --section-padding: 64px;
+  --hero-padding: 122px;
+  --footer-padding: 144px;
+  --container-max-width: 1248px;
+  --container-padding-x: 20px;
+  --grid-gap: 32px;
+
+  /* === Efectos === */
+  --border-radius: 0px;
+  --transition: all 0.3s ease;
+}
+
+/* === Reset CSS === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.6;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: var(--border-radius);
+}
+
+/* === Container === */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+/* === Tipografía Utility Classes === */
+.h1-hero {
+  font-family: var(--font-heading);
+  font-size: var(--h1-hero-size);
+  line-height: var(--h1-hero-line-height);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.h2 {
+  font-family: var(--font-heading);
+  font-size: var(--h2-size);
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.h3 {
+  font-family: var(--font-heading);
+  font-size: var(--h3-size);
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.6;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: var(--nav-size);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--nav-letter-spacing);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+/* === Colores de Texto === */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-dark { color: var(--text-dark); }
+.text-blue { color: var(--primary-blue); }
+.text-pink { color: var(--pink-accent); }
+
+/* === Fondos === */
+.bg-dark { background-color: var(--bg-dark); }
+.bg-neutral { background-color: var(--bg-neutral); }
+.bg-celeste { background-color: var(--bg-celeste); }
+.bg-blue { background-color: var(--primary-blue); }
+.bg-pink { background-color: var(--pink-accent); }
+
+/* === Media Queries - Responsive === */
+@media (max-width: 1024px) {
+  :root {
+    --h1-hero-size: 48px;
+    --h2-size: 48px;
+    --h3-size: 32px;
+    --container-max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --h1-hero-size: 36px;
+    --h2-size: 36px;
+    --h3-size: 28px;
+    --body-size: 13px;
+    --section-padding: 48px;
+    --hero-padding: 80px;
+    --footer-padding: 80px;
+    --container-padding-x: 16px;
+    --grid-gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --h1-hero-size: 28px;
+    --h2-size: 28px;
+    --h3-size: 24px;
+    --section-padding: 32px;
+    --hero-padding: 64px;
+    --footer-padding: 64px;
+    --container-padding-x: 12px;
+    --grid-gap: 16px;
+  }
+}

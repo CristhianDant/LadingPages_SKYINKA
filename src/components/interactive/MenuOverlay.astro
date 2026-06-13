@@ -1,0 +1,322 @@
+---
+interface Props {
+  isOpen?: boolean;
+}
+
+const { isOpen = false } = Astro.props;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Experiencias', href: '/#experiencias' },
+  { label: 'Servicios', href: '/#servicios' },
+  { label: 'Tándem', href: '/salto-tandem' },
+  { label: 'Contacto', href: '#contacto' },
+  { label: 'Blog', href: '#blog' }
+];
+
+const serviceLinks = [
+  { label: 'Salto Tándem', href: '/salto-tandem' },
+  { label: 'Escuela de Paracaidismo', href: '#escuelas' },
+  { label: 'Vuelo en Girocóptero', href: '#vuelos' },
+  { label: 'Salto Certificado', href: '#certificado' }
+];
+
+const infoLinks = [
+  { label: 'Preguntas Frecuentes', href: '#faq' },
+  { label: 'Requisitos', href: '#requisitos' },
+  { label: 'Política de Reserva', href: '#reservas' },
+  { label: 'Política de Cancelación', href: '#cancelacion' },
+  { label: 'Términos y Condiciones', href: '#terminos' }
+];
+
+const socialLinks = [
+  { name: 'Facebook', icon: 'FB', href: '#facebook' },
+  { name: 'YouTube', icon: 'YT', href: '#youtube' },
+  { name: 'Instagram', icon: 'IG', href: '#instagram' }
+];
+---
+
+<div
+  class="menu-overlay"
+  x-data="{ open: false }"
+  @open-menu.window="open = true"
+  @close-menu.window="open = false"
+  :class="{ 'active': open }"
+>
+  <div class="menu-content">
+    <!-- Top Bar -->
+    <div class="menu-top-bar">
+      <span class="menu-title">Menú Overlay</span>
+      <button class="menu-close" @click="open = false" aria-label="Cerrar menú">
+        ✕
+      </button>
+    </div>
+
+    <!-- Main Section -->
+    <div class="menu-main">
+      <!-- Navegación Column -->
+      <div class="menu-column">
+        <h4 class="menu-column-title">Navegación</h4>
+        <nav class="menu-nav">
+          {navLinks.map((link) => (
+            <a href={link.href} class="menu-link" @click="open = false">{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Servicios Column -->
+      <div class="menu-column">
+        <h4 class="menu-column-title">Servicios</h4>
+        <nav class="menu-nav">
+          {serviceLinks.map((link) => (
+            <a href={link.href} class="menu-link" @click="open = false">{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Información Column -->
+      <div class="menu-column">
+        <h4 class="menu-column-title">Información</h4>
+        <nav class="menu-nav">
+          {infoLinks.map((link) => (
+            <a href={link.href} class="menu-link" @click="open = false">{link.label}</a>
+          ))}
+        </nav>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="menu-divider"></div>
+
+    <!-- Others Section -->
+    <div class="menu-others">
+      <div class="menu-column">
+        <h4 class="menu-column-title">Otros</h4>
+        <nav class="menu-nav">
+          <a href="#programas" class="menu-link">Programas Especiales</a>
+          <a href="#instructores" class="menu-link">Nuestros Instructores</a>
+        </nav>
+      </div>
+      <div class="menu-column">
+        <nav class="menu-nav">
+          <a href="#empresas" class="menu-link">Events for Companies</a>
+          <a href="#grupos" class="menu-link">Grupos</a>
+        </nav>
+      </div>
+      <div class="menu-column">
+        <nav class="menu-nav">
+          <a href="#alianzas" class="menu-link">Alianzas y Colaboraciones</a>
+          <a href="#franquicias" class="menu-link">Franquicias y Licencias SKIP</a>
+          <a href="#equipo" class="menu-link">Instructores y Personal</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="menu-divider"></div>
+
+    <!-- Social Section -->
+    <div class="menu-social">
+      <h4 class="menu-social-title">Social</h4>
+      <div class="menu-social-icons">
+        {socialLinks.map((social) => (
+          <a href={social.href} class="social-icon" aria-label={social.name}>
+            {social.icon}
+          </a>
+        ))}
+      </div>
+      <p class="menu-copyright">Copyright © SKYDIVE INKA PERÚ 2023</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #2a2a2a;
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .menu-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 80px;
+    border-bottom: 1px solid var(--bg-neutral);
+  }
+
+  .menu-title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--primary-blue);
+  }
+
+  .menu-close {
+    font-size: 36px;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .menu-close:hover {
+    color: var(--pink-accent);
+  }
+
+  .menu-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 120px;
+    padding: 50px 100px 30px;
+  }
+
+  .menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu-column-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+  }
+
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu-link {
+    font-family: var(--font-body);
+    font-size: 36px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    transition: var(--transition);
+    display: block;
+  }
+
+  .menu-link:hover {
+    color: var(--primary-blue);
+  }
+
+  .menu-divider {
+    height: 1px;
+    background-color: #404040;
+    margin: 0 100px;
+  }
+
+  .menu-others {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 120px;
+    padding: 30px 100px;
+  }
+
+  .menu-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 100px;
+  }
+
+  .menu-social-title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--text-primary);
+  }
+
+  .menu-social-icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-neutral);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+
+  .social-icon:hover {
+    background-color: var(--primary-blue);
+  }
+
+  .menu-copyright {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 1024px) {
+    .menu-main,
+    .menu-others {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .menu-top-bar,
+    .menu-main,
+    .menu-others,
+    .menu-divider,
+    .menu-social {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .menu-divider {
+      margin: 0 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-main,
+    .menu-others {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .menu-link {
+      font-size: 28px;
+    }
+
+    .menu-top-bar,
+    .menu-main,
+    .menu-others,
+    .menu-divider,
+    .menu-social {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .menu-divider {
+      margin: 0 20px;
+    }
+  }
+</style>

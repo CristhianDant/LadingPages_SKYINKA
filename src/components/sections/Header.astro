@@ -1,0 +1,160 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<header class:list={['header', className]} x-data="{ menuOpen: false }">
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="/" class="logo-area">
+      <img src="/images/logo-header.png" alt="Skydive Inka Perú" class="logo-img" />
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav class="nav-desktop">
+      <a href="/#experiencias" class="nav-link">Experiencias</a>
+      <a href="/#servicios" class="nav-link">Servicios</a>
+      <a href="/#escuelas" class="nav-link">Escuelas</a>
+      <a href="/#noticias" class="nav-link">Noticias y Eventos</a>
+    </nav>
+
+    <!-- Acciones -->
+    <div class="header-actions">
+      <a href="tel:+51999999999" class="action-link" aria-label="Llamar">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </svg>
+      </a>
+      <a href="#buscar" class="action-link" aria-label="Buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+      </a>
+      <a href="#reservar" class="btn-reservar">Reservar Ahora</a>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        class="menu-toggle"
+        @click="menuOpen = !menuOpen"
+        aria-label="Abrir menú"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-celeste);
+    height: 84px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+    height: 100%;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 200px;
+  }
+
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-family: var(--font-header);
+    color: #4b4b4b;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .action-link {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-header);
+    color: #4b4b4b;
+    transition: var(--transition);
+  }
+
+  .action-link:hover {
+    color: var(--text-primary);
+  }
+
+  .btn-reservar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+
+  .btn-reservar:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-desktop {
+      display: none;
+    }
+
+    .action-link {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+  }
+</style>

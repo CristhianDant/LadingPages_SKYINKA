@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import ExperiencesGrid from '../components/sections/ExperiencesGrid.astro';
+import ShareThrill from '../components/sections/ShareThrill.astro';
+import TestimonialsCarousel from '../components/sections/TestimonialsCarousel.astro';
+import Footer from '../components/sections/Footer.astro';
+import MenuOverlay from '../components/interactive/MenuOverlay.astro';
+---
+
+<BaseLayout
+  title="Skydive Inka Perú - Paracaidismo en Perú"
+  description="Vive la experiencia de paracaidismo más emocionante del Perú. Saltos tándem, escuela de paracaidismo y más."
+>
+  <Header />
+  <MenuOverlay />
+  <main>
+    <HeroSection />
+    <ServicesGrid />
+    <ExperiencesGrid />
+    <ShareThrill />
+    <TestimonialsCarousel />
+  </main>
+  <Footer />
+</BaseLayout>

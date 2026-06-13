@@ -1,0 +1,70 @@
+---
+interface Props {
+  type?: 'text' | 'email' | 'tel' | 'number' | 'password';
+  name?: string;
+  placeholder?: string;
+  label?: string;
+  required?: boolean;
+  class?: string;
+}
+
+const {
+  type = 'text',
+  name,
+  placeholder,
+  label,
+  required = false,
+  class: className = '',
+  ...rest
+} = Astro.props;
+---
+
+<div class:list={['input-wrapper', className]}>
+  {label && <label class="input-label" for={name}>{label}</label>}
+  <input
+    type={type}
+    name={name}
+    id={name}
+    placeholder={placeholder}
+    required={required}
+    class="input-field"
+    {...rest}
+  />
+</div>
+
+<style>
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .input-label {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-dark);
+  }
+
+  .input-field {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    background-color: var(--white);
+    border: 1px solid var(--border-neutral);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-dark);
+    transition: var(--transition);
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+  }
+
+  .input-field::placeholder {
+    color: var(--gray-medium);
+  }
+</style>

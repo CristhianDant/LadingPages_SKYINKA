@@ -1,0 +1,211 @@
+---
+const faqs = [
+  {
+    question: '¿Qué hago si no puedo hacer una reserva en línea?',
+    answer: 'Si tienes problemas con la reserva en línea, puedes contactarnos por teléfono o email. Nuestro equipo te ayudará a completar tu reserva de forma manual.'
+  },
+  {
+    question: '¿Cuál es tu política de reembolso?',
+    answer: 'Ofrecemos reembolso completo si cancelas con al menos 48 horas de anticipación. Cancelaciones con menos de 48 horas pueden tener un cargo del 50%.'
+  },
+  {
+    question: '¿Qué es un salto tándem?',
+    answer: 'Un salto tándem es una experiencia de paracaidismo donde saltas atado a un instructor certificado. No necesitas experiencia previa, el instructor se encarga de todo.'
+  },
+  {
+    question: '¿Qué rápido voy a caer?',
+    answer: 'Durante un salto tándem, la velocidad de caída libre es de aproximadamente 200 km/h (120 mph). Después de abrir el paracaídas, la velocidad desciende a unos 20 km/h.'
+  },
+  {
+    question: '¿Es seguro el paracaidismo?',
+    answer: 'El paracaidismo tándem es una de las experiencias de aventura más seguras. Utilizamos equipos de última generación y contamos con instructores certificados internacionalmente.'
+  },
+  {
+    question: '¿Hay requisitos físicos para un salto tándem?',
+    answer: 'Debes tener entre 18 y 65 años, pesar entre 40 kg y 100 kg, y estar en buen estado de salud general. No se permiten personas con problemas cardíacos o epilepsia.'
+  },
+  {
+    question: '¿Por qué el calendario no muestra las fechas que quiero reservar?',
+    answer: 'Las fechas disponibles dependen de la demanda y las condiciones climáticas. Si no encuentras la fecha que buscas, contacta con nuestro equipo para opciones alternativas.'
+  },
+  {
+    question: '¿Qué debo usar?',
+    answer: 'Ropa cómoda y zapatos deportivos. Evita faldas, pantalones anchos o sandalias. Proveemos todos los equipos necesarios para el salto.'
+  },
+  {
+    question: '¿Puedo usar lentes o gafas durante mi salto tándem?',
+    answer: 'Sí, puedes usar lentes o gafas. Tenemos gafas especiales que se ajustan sobre tus lentes para protegerlos durante el salto.'
+  },
+  {
+    question: '¿Qué debo traer?',
+    answer: 'Solo tu identificación oficial, ropa cómoda y muchas ganas de pasarla bien. Todo el equipo de paracaidismo es proporcionado por nosotros.'
+  },
+  {
+    question: '¿Cuánto dura la experiencia completa del paracaidismo?',
+    answer: 'La experiencia completa dura aproximadamente 3-4 horas, incluyendo capacitación, preparación, el vuelo, el salto y el tiempo de vuelo libre.'
+  },
+  {
+    question: '¿Qué significa \'standby\'?',
+    answer: 'Standby significa que tu reserva está confirmada pero pendiente de confirmación final dependiendo de las condiciones climáticas del día del salto.'
+  },
+  {
+    question: '¿El clima afecta el paracaidismo?',
+    answer: 'Sí, el clima es un factor crucial. No saltamos con lluvia, vientos fuertes o nubosidad baja. Si las condiciones no son óptimas, reprogramaremos tu salto sin costo adicional.'
+  }
+];
+---
+
+<section id="faq" class="faq-section" x-data="{ openIndex: null }">
+  <div class="container">
+    <h2 class="h2 faq-title">Importante Saber</h2>
+    <a href="#reservar" class="faq-btn">Reservar Ahora</a>
+
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            @click={`openIndex = openIndex === ${index} ? null : ${index}`}
+          >
+            <span>{faq.question}</span>
+            <span class="faq-icon" :class={`{ 'open': openIndex === ${index} }`}>
+              <span x-text={`openIndex === ${index} ? '−' : '+'`}></span>
+            </span>
+          </button>
+          <div
+            class="faq-answer"
+            x-show={`openIndex === ${index}`}
+            x-transition:enter="faq-enter"
+            x-transition:enter-start="faq-enter-start"
+            x-transition:enter-end="faq-enter-end"
+            x-transition:leave="faq-leave"
+            x-transition:leave-start="faq-leave-start"
+            x-transition:leave-end="faq-leave-end"
+          >
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background-color: var(--white);
+    padding: 80px 0;
+  }
+
+  .faq-title {
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .faq-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-decoration: none;
+    margin: 0 auto 40px;
+    display: block;
+    width: fit-content;
+  }
+
+  .faq-btn:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-dark);
+    transition: var(--transition);
+  }
+
+  .faq-question:hover {
+    color: var(--primary-blue);
+  }
+
+  .faq-icon {
+    font-size: 18px;
+    color: var(--gray-dark);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-icon.open {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    overflow: hidden;
+    padding-bottom: 16px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-medium);
+  }
+
+  /* Transitions */
+  .faq-enter {
+    transition: all 0.3s ease;
+  }
+
+  .faq-enter-start {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .faq-enter-end {
+    opacity: 1;
+    max-height: 200px;
+  }
+
+  .faq-leave {
+    transition: all 0.3s ease;
+  }
+
+  .faq-leave-start {
+    opacity: 1;
+    max-height: 200px;
+  }
+
+  .faq-leave-end {
+    opacity: 0;
+    max-height: 0;
+  }
+</style>
