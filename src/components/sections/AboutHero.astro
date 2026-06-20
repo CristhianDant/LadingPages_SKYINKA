@@ -1,0 +1,243 @@
+---
+---
+
+<section class="about-hero">
+  <img src="/images/APERTURA.webp" alt="Paracaidista en caída libre" class="about-hero-bg" />
+  <div class="about-hero-overlay"></div>
+  <img src="/images/nubes.png" alt="" class="about-hero-nubes" aria-hidden="true" />
+  <div class="about-hero-content container">
+    <span class="about-hero-tag">Quiénes Somos</span>
+    <h1 class="about-hero-title">
+      Somos<br />
+      <span class="text-blue">Skydive Inka Perú</span>
+    </h1>
+    <p class="about-hero-subtitle">
+      Formamos paracaidistas, instructores y atletas de alto rendimiento que contribuyen al desarrollo y evolución del paracaidismo deportivo en el Perú.
+    </p>
+    <div class="about-hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">+10</span>
+        <span class="stat-label">Años de operación</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">DGAC</span>
+        <span class="stat-label">Reconocidos desde 2014</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Habilitaciones certificadas</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-hero-scroll">
+    <span>Descubre nuestra historia</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+  }
+
+  .about-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.5;
+  }
+
+  .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(27, 27, 25, 0.95) 0%,
+      rgba(27, 27, 25, 0.6) 40%,
+      rgba(27, 27, 25, 0.3) 70%,
+      rgba(27, 27, 25, 0.9) 100%
+    );
+    z-index: 1;
+  }
+
+  .about-hero-nubes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .about-hero-content {
+    position: relative;
+    z-index: 3;
+    padding-top: var(--hero-padding);
+    padding-bottom: 80px;
+  }
+
+  .about-hero-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-light);
+    margin-bottom: 24px;
+    padding: 6px 16px;
+    border: 1px solid var(--primary-light);
+  }
+
+  .about-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+
+  .about-hero-title .text-blue {
+    color: var(--primary-blue);
+    display: inline-block;
+    position: relative;
+  }
+
+  .about-hero-title .text-blue::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-blue);
+    opacity: 0.4;
+  }
+
+  .about-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+
+  .about-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 48px;
+    background-color: var(--text-secondary);
+    opacity: 0.3;
+  }
+
+  .about-hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      min-height: 90vh;
+    }
+
+    .about-hero-content {
+      padding-bottom: 60px;
+    }
+
+    .about-hero-subtitle {
+      font-size: 15px;
+    }
+
+    .about-hero-stats {
+      gap: 20px;
+    }
+
+    .stat-number {
+      font-size: 32px;
+    }
+
+    .stat-divider {
+      height: 36px;
+    }
+
+    .about-hero-scroll {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-hero-stats {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .stat-divider {
+      width: 48px;
+      height: 1px;
+    }
+  }
+</style>

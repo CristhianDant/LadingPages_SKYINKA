@@ -1,0 +1,265 @@
+---
+const servicios = [
+  {
+    title: 'Asesoría técnica en equipamiento',
+    description: 'Selección, adquisición, configuración y gestión de equipos de paracaidismo, incluyendo sistemas de paracaídas, instrumentos de navegación, altimetría y accesorios operacionales.',
+    icon: 'gear'
+  },
+  {
+    title: 'Formación experiencial & coaching',
+    description: 'Programas de formación experiencial y coaching para organizaciones, equipos y entornos corporativos, trasladando principios operacionales del paracaidismo al ámbito profesional.',
+    icon: 'users'
+  },
+  {
+    title: 'Gestión del riesgo & liderazgo',
+    description: 'Liderazgo bajo presión, comunicación efectiva, trabajo en equipo y ejecución precisa de procedimientos en entornos dinámicos.',
+    icon: 'target'
+  }
+];
+---
+
+<section class="servicios-section">
+  <div class="serv-container container">
+    <div class="serv-layout">
+      <div class="serv-left">
+        <img src="/images/FOTO_2INSTRUCTORES.webp" alt="Asesoría técnica en paracaidismo" class="serv-image" />
+        <div class="serv-image-overlay">
+          <span class="serv-overlay-text">Experiencia que se transfiere</span>
+        </div>
+      </div>
+      <div class="serv-right">
+        <span class="serv-eyebrow">Servicios especializados</span>
+        <h2 class="serv-title">
+          Más allá del<br />
+          <span class="serv-accent">salto</span>
+        </h2>
+        <p class="serv-desc">
+          Skydive Inka Perú (SKIP) brinda asesoría técnica especializada y desarrolla programas de formación experiencial que trasladan los valores del paracaidismo al desarrollo profesional.
+        </p>
+        <div class="serv-list">
+          {servicios.map((serv) => (
+            <div class="serv-item">
+              <div class="serv-item-icon">
+                {serv.icon === 'gear' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                )}
+                {serv.icon === 'users' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                )}
+                {serv.icon === 'target' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                  </svg>
+                )}
+              </div>
+              <div class="serv-item-content">
+                <h3 class="serv-item-title">{serv.title}</h3>
+                <p class="serv-item-desc">{serv.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicios-section {
+    background-color: var(--white);
+    padding: var(--section-padding) 0;
+  }
+
+  .serv-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .serv-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .serv-left {
+    position: relative;
+  }
+
+  .serv-image {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+  }
+
+  .serv-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(27, 27, 25, 0.9) 100%);
+    padding: 40px 28px 28px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .serv-overlay-text {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+  }
+
+  .serv-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .serv-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .serv-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .serv-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 3.5vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .serv-accent {
+    color: var(--primary-blue);
+  }
+
+  .serv-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    margin-bottom: 36px;
+    max-width: 500px;
+  }
+
+  .serv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .serv-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+    background-color: var(--bg-celeste);
+    transition: var(--transition);
+  }
+
+  .serv-item:hover {
+    background-color: var(--primary-blue);
+  }
+
+  .serv-item:hover .serv-item-title,
+  .serv-item:hover .serv-item-desc {
+    color: var(--text-primary);
+  }
+
+  .serv-item:hover .serv-item-icon {
+    background-color: var(--white);
+  }
+
+  .serv-item:hover .serv-item-icon svg {
+    color: var(--primary-blue);
+  }
+
+  .serv-item-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-blue);
+    transition: var(--transition);
+  }
+
+  .serv-item-icon svg {
+    color: var(--text-primary);
+    transition: var(--transition);
+  }
+
+  .serv-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .serv-item-title {
+    font-family: var(--font-header);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: var(--transition);
+  }
+
+  .serv-item-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--gray-text);
+    transition: var(--transition);
+  }
+
+  @media (max-width: 1024px) {
+    .serv-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .serv-image {
+      height: 360px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .servicios-section {
+      padding: 48px 0;
+    }
+
+    .serv-item {
+      padding: 20px;
+    }
+  }
+</style>

@@ -1,0 +1,162 @@
+---
+---
+
+<section class="dgac-section">
+  <div class="dgac-container container">
+    <div class="dgac-content">
+      <span class="dgac-eyebrow">Reconocimiento Oficial</span>
+      <h2 class="dgac-title">
+        Respaldo de la<br />
+        <span class="dgac-accent">DGAC</span>
+      </h2>
+      <p class="dgac-desc">
+        La Dirección General de Aeronáutica Civil y nuestra asociación.
+      </p>
+      <div class="dgac-details">
+        <p class="dgac-text">
+          Reconocidos por la Dirección General de Aeronáutica Civil (DGAC) del Ministerio de Transportes y Comunicaciones (MTC), mediante Resolución Directoral (RD) N° 076-2014-MTC/12 de fecha 20 febrero 2014, inscrita en los Registros Públicos de Lima, Mediante Partida Registral Nro. 13141196.
+        </p>
+      </div>
+      <div class="dgac-legal">
+        <div class="dgac-legal-item">
+          <span class="dgac-legal-label">Resolución Directoral</span>
+          <span class="dgac-legal-value">RD N° 076-2014-MTC/12</span>
+        </div>
+        <div class="dgac-legal-item">
+          <span class="dgac-legal-label">Fecha</span>
+          <span class="dgac-legal-value">20 de febrero 2014</span>
+        </div>
+        <div class="dgac-legal-item">
+          <span class="dgac-legal-label">Partida Registral</span>
+          <span class="dgac-legal-value">Nro. 13141196</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dgac-section {
+    background-color: var(--bg-dark);
+    padding: var(--section-padding) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dgac-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(77, 124, 234, 0.05) 100%);
+    pointer-events: none;
+  }
+
+  .dgac-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+    position: relative;
+    z-index: 1;
+  }
+
+  .dgac-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .dgac-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-light);
+    margin-bottom: 20px;
+  }
+
+  .dgac-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .dgac-accent {
+    color: var(--primary-blue);
+  }
+
+  .dgac-desc {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .dgac-details {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--primary-blue);
+    padding: 28px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .dgac-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .dgac-legal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dgac-legal-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .dgac-legal-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
+  }
+
+  .dgac-legal-value {
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-light);
+  }
+
+  @media (max-width: 768px) {
+    .dgac-section {
+      padding: 48px 0;
+    }
+
+    .dgac-legal {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .dgac-details {
+      padding: 20px;
+    }
+  }
+</style>

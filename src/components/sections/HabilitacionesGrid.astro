@@ -1,0 +1,239 @@
+---
+const habilitaciones = [
+  {
+    code: 'PRECAL',
+    title: 'Instructor del Programa Regular de Caída Libre',
+    description: 'Formación progresiva en caída libre con metodología tradicional y acompañamiento personalizado.'
+  },
+  {
+    code: 'PACAL',
+    title: 'Instructor del Programa Acelerado de Caída Libre',
+    description: 'Método acelerado de enseñanza con instructores certificados para progresión rápida y segura.'
+  },
+  {
+    code: 'MS',
+    title: 'Maestro de Salto',
+    description: 'Habilitación de máximo nivel técnico para dirección y supervisión de operaciones de salto.'
+  },
+  {
+    code: 'PT',
+    title: 'Piloto Tandem',
+    description: 'Certificación para operación de saltos tándem con los más altos estándares de seguridad.'
+  },
+  {
+    code: 'IPT',
+    title: 'Instructor de Pilotos Tandem',
+    description: 'Formación de nuevos pilotos tandem con metodologías avanzadas y protocolos establecidos.'
+  },
+  {
+    code: 'PW',
+    title: 'Piloto Wingsuit',
+    description: 'Especialización en vuelo con traje de alas, una de las disciplinas más avanzadas del paracaidismo.'
+  },
+  {
+    code: 'EFCL/VBV',
+    title: 'Entrenador de Formaciones en Caída Libre y Vuelo con Velamen Abierto',
+    description: 'Entrenamiento especializado en formaciones grupales tanto en caída libre como bajo velamen.'
+  }
+];
+---
+
+<section class="habilitaciones-section">
+  <div class="hab-container container">
+    <div class="hab-header">
+      <span class="hab-eyebrow">Certificaciones & Habilitaciones</span>
+      <h2 class="hab-title">
+        SKIP certifica paracaidistas<br />
+        y habilita instructores en las<br />
+        <span class="hab-accent">principales actividades</span>
+      </h2>
+      <p class="hab-desc">
+        Skydive Inka Perú (SKIP) certifica paracaidistas y habilita a instructores y especialistas en las principales actividades del paracaidismo deportivo.
+      </p>
+    </div>
+
+    <div class="hab-grid">
+      {habilitaciones.map((hab, index) => (
+        <article class="hab-card">
+          <div class="hab-card-header">
+            <span class="hab-code">{hab.code}</span>
+            <span class="hab-number">0{index + 1}</span>
+          </div>
+          <h3 class="hab-card-title">{hab.title}</h3>
+          <p class="hab-card-desc">{hab.description}</p>
+          <div class="hab-card-line"></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .habilitaciones-section {
+    background-color: var(--bg-celeste);
+    padding: var(--section-padding) 0;
+  }
+
+  .hab-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .hab-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+  }
+
+  .hab-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 40px;
+  }
+
+  .hab-eyebrow::before,
+  .hab-eyebrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .hab-eyebrow::before {
+    left: 0;
+  }
+
+  .hab-eyebrow::after {
+    right: 0;
+  }
+
+  .hab-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .hab-accent {
+    color: var(--primary-blue);
+  }
+
+  .hab-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+  }
+
+  .hab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .hab-card {
+    background-color: var(--white);
+    padding: 32px;
+    position: relative;
+    transition: var(--transition);
+    border-left: 4px solid transparent;
+  }
+
+  .hab-card:hover {
+    border-left-color: var(--primary-blue);
+    transform: translateX(4px);
+  }
+
+  .hab-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .hab-code {
+    display: inline-block;
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    background-color: rgba(77, 124, 234, 0.1);
+    padding: 6px 12px;
+    letter-spacing: 1px;
+  }
+
+  .hab-number {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--gray-light);
+    line-height: 1;
+  }
+
+  .hab-card-title {
+    font-family: var(--font-header);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .hab-card-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+  }
+
+  .hab-card-line {
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary-blue);
+    opacity: 0.3;
+    transition: var(--transition);
+  }
+
+  .hab-card:hover .hab-card-line {
+    opacity: 1;
+    width: 48px;
+  }
+
+  @media (max-width: 1024px) {
+    .hab-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .habilitaciones-section {
+      padding: 48px 0;
+    }
+
+    .hab-header {
+      margin-bottom: 40px;
+    }
+
+    .hab-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .hab-card {
+      padding: 24px;
+    }
+  }
+</style>

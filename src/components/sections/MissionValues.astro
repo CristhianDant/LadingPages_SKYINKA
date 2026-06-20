@@ -1,0 +1,275 @@
+---
+const pillars = [
+  {
+    number: '01',
+    title: 'Formación integral',
+    description: 'Programas técnicos que abarcan todos los niveles: desde la iniciación en caída libre hasta habilitaciones avanzadas como Instructor, Maestro de Salto, Piloto Tandem y Wingsuit.',
+    icon: 'shield'
+  },
+  {
+    number: '02',
+    title: 'Seguridad operacional',
+    description: 'Protocolos establecidos y estándares regulados por la DGAC. Cada procedimiento, cada equipo y cada instructor cumple con los más altos requisitos de seguridad.',
+    icon: 'heart'
+  },
+  {
+    number: '03',
+    title: 'Desarrollo del deporte',
+    description: 'Contribuimos al crecimiento y evolución del paracaidismo deportivo en el Perú, formando atletas de alto rendimiento y promoviendo la profesionalización del sector.',
+    icon: 'people'
+  },
+  {
+    number: '04',
+    title: 'Asesoría especializada',
+    description: 'Selección, adquisición y configuración de equipos de paracaidismo. Formación experiencial y coaching corporativo trasladando principios operacionales al ámbito profesional.',
+    icon: 'mountain'
+  }
+];
+---
+
+<section class="mission-values">
+  <div class="mv-bg-text" aria-hidden="true">SKYDIVE INKA</div>
+  <div class="mv-container container">
+    <div class="mv-header">
+      <div class="mv-header-left">
+        <span class="mv-eyebrow">Lo que nos mueve</span>
+        <h2 class="mv-title">
+          Misión, visión<br />y los valores que<br />
+          <span class="mv-title-accent">nos mantienen en el aire</span>
+        </h2>
+      </div>
+      <div class="mv-header-right">
+        <div class="mv-mission-box">
+          <h3 class="mv-box-label">Misión</h3>
+          <p class="mv-box-text">
+            Formar paracaidistas, instructores y atletas aerodeportivos de alto nivel, promoviendo la profesionalización y el crecimiento sostenido del paracaidismo en el Perú, con proyección de reconocimiento internacional.
+          </p>
+          <p class="mv-box-text" style="margin-top: 12px;">
+            Desarrollamos el paracaidismo deportivo desde su base formativa, estructurando progresiones técnicas que priorizan la seguridad operacional, la disciplina y la competencia técnica.
+          </p>
+        </div>
+        <div class="mv-vision-box">
+          <h3 class="mv-box-label">Visión</h3>
+          <p class="mv-box-text">
+            Posicionar al Perú como un referente internacional en paracaidismo deportivo, reconocido por la seguridad operacional, la calidad técnica de su formación y el profesionalismo de sus prácticas.
+          </p>
+          <p class="mv-box-text" style="margin-top: 12px;">
+            Consolidar, salto a salto, una comunidad aerodeportiva altamente profesional, interconectada y competitiva a nivel regional e internacional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv-pillars">
+      {pillars.map((pillar) => (
+        <div class="mv-pillar">
+          <div class="pillar-number">{pillar.number}</div>
+          <h3 class="pillar-title">{pillar.title}</h3>
+          <p class="pillar-desc">{pillar.description}</p>
+          <div class="pillar-line"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission-values {
+    position: relative;
+    background-color: var(--bg-dark);
+    padding: var(--section-padding) 0;
+    overflow: hidden;
+  }
+
+  .mv-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: clamp(80px, 15vw, 220px);
+    color: var(--white);
+    opacity: 0.03;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .mv-container {
+    position: relative;
+    z-index: 1;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .mv-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+
+  .mv-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-light);
+    margin-bottom: 20px;
+  }
+
+  .mv-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .mv-title-accent {
+    color: var(--primary-blue);
+  }
+
+  .mv-header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mv-mission-box,
+  .mv-vision-box {
+    padding: 28px;
+    border-left: 4px solid var(--primary-blue);
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  .mv-vision-box {
+    border-left-color: var(--accent-gold);
+  }
+
+  .mv-box-label {
+    font-family: var(--font-header);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-light);
+    margin-bottom: 12px;
+  }
+
+  .mv-vision-box .mv-box-label {
+    color: var(--accent-gold);
+  }
+
+  .mv-box-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .mv-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mv-pillar {
+    padding: 40px 28px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: var(--transition);
+  }
+
+  .mv-pillar:last-child {
+    border-right: none;
+  }
+
+  .mv-pillar:hover {
+    background-color: rgba(77, 124, 234, 0.06);
+  }
+
+  .mv-pillar:hover .pillar-number {
+    color: var(--primary-blue);
+  }
+
+  .pillar-number {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
+    transition: var(--transition);
+  }
+
+  .pillar-title {
+    font-family: var(--font-header);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .pillar-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .pillar-line {
+    width: 32px;
+    height: 3px;
+    background-color: var(--primary-blue);
+  }
+
+  @media (max-width: 1024px) {
+    .mv-header {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .mv-pillars {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mv-pillar {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mv-pillar:nth-child(2) {
+      border-right: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mission-values {
+      padding: 48px 0;
+    }
+
+    .mv-pillars {
+      grid-template-columns: 1fr;
+    }
+
+    .mv-pillar {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 32px 20px;
+    }
+
+    .pillar-number {
+      font-size: 42px;
+    }
+  }
+</style>

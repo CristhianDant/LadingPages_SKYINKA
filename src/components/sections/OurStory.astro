@@ -1,0 +1,269 @@
+---
+---
+
+<section class="our-story">
+  <div class="story-container container">
+    <div class="story-grid">
+      <div class="story-text-col">
+        <span class="story-eyebrow">Nuestra Historia</span>
+        <h2 class="story-title">
+          Más de una década<br />formando<br />
+          <span class="story-highlight">paracaidistas</span>
+        </h2>
+        <div class="story-body">
+          <p>
+            Skydive Inka Perú (SKIP), con más de una década de operación continua, es una asociación aero-deportiva especializada en paracaidismo, con la mayor trayectoria operativa reciente en el país.
+          </p>
+          <p>
+            Desde su reconocimiento formal en 2014 por la Dirección General de Aeronáutica Civil (DGAC) del Ministerio de Transportes y Comunicaciones, opera bajo estándares regulados de seguridad y entrenamiento.
+          </p>
+          <p>
+            SKIP constituye un eje técnico dentro de la comunidad aerodeportiva nacional, consolidándose como una institución de referencia para la práctica del paracaidismo deportivo estructurado y continuo.
+          </p>
+        </div>
+        <div class="story-signature">
+          <img src="/images/isotipo-skip.svg" alt="" class="story-signature-logo" aria-hidden="true" />
+          <div class="story-signature-text">
+            <span class="signature-name">Reconocidos por DGAC</span>
+            <span class="signature-role">RD N° 076-2014-MTC/12</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-images-col">
+        <div class="story-img-main">
+          <img src="/images/FOTO_2INSTRUCTORES.webp" alt="Instructores de Skydive Inka Perú" />
+          <div class="story-img-badge">
+            <span class="badge-year">2014</span>
+            <span class="badge-text">Reconocidos por DGAC</span>
+          </div>
+        </div>
+        <div class="story-img-secondary">
+          <img src="/images/paracaidista-video.png" alt="Paracaidista en vuelo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .our-story {
+    background-color: var(--white);
+    padding: var(--section-padding) 0;
+    overflow: hidden;
+  }
+
+  .story-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .story-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .story-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .story-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+
+  .story-highlight {
+    color: var(--primary-blue);
+    display: inline-block;
+    position: relative;
+  }
+
+  .story-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--primary-light);
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .story-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .story-body p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--gray-text);
+  }
+
+  .story-body p:first-child::first-letter {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    float: left;
+    line-height: 1;
+    margin-right: 8px;
+    margin-top: 4px;
+    color: var(--primary-blue);
+  }
+
+  .story-signature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 2px solid var(--gray-light);
+  }
+
+  .story-signature-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .story-signature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .signature-name {
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .signature-role {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--gray-medium);
+  }
+
+  .story-img-main {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .story-img-main img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+  }
+
+  .story-img-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .badge-year {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-family: var(--font-body);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .story-img-secondary {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .story-img-secondary img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .story-img-secondary::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent-gold);
+  }
+
+  @media (max-width: 1024px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .story-img-main img {
+      height: 320px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .our-story {
+      padding: 48px 0;
+    }
+
+    .story-img-badge {
+      bottom: -12px;
+      right: 12px;
+      padding: 12px 18px;
+    }
+
+    .badge-year {
+      font-size: 22px;
+    }
+
+    .story-img-secondary {
+      padding-left: 24px;
+    }
+
+    .story-img-secondary img {
+      height: 180px;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import AboutHero from '../components/sections/AboutHero.astro';
+import OurStory from '../components/sections/OurStory.astro';
+import MissionValues from '../components/sections/MissionValues.astro';
+import HabilitacionesGrid from '../components/sections/HabilitacionesGrid.astro';
+import ServiciosEspeciales from '../components/sections/ServiciosEspeciales.astro';
+import DGACRecognition from '../components/sections/DGACRecognition.astro';
+import AboutCTA from '../components/sections/AboutCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import MenuOverlay from '../components/interactive/MenuOverlay.astro';
+import WhatsappLogo from '../components/ui/WhatsappLogo.astro';
+---
+
+<BaseLayout
+  title="Quiénes Somos - Skydive Inka Perú"
+  description="Skydive Inka Perú (SKIP) - Asociación aero-deportiva reconocida por la DGAC. Formamos paracaidistas, instructores y atletas de alto rendimiento en el Perú."
+>
+  <Header />
+  <MenuOverlay />
+  <main>
+    <AboutHero />
+    <OurStory />
+    <MissionValues />
+    <HabilitacionesGrid />
+    <ServiciosEspeciales />
+    <DGACRecognition />
+    <AboutCTA />
+  </main>
+  <Footer />
+  <WhatsappLogo />
+</BaseLayout>
