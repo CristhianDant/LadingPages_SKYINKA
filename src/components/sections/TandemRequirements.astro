@@ -1,0 +1,254 @@
+---
+const requirements = [
+  {
+    title: 'Edad',
+    content: 'Edad mínima: 16 años cumplidos, con permiso notarial y presencia de padre o madre o apoderado el día del salto.'
+  },
+  {
+    title: 'Peso',
+    content: 'Peso máximo: 95 kg (consultar si se excede).'
+  },
+  {
+    title: 'Estatura',
+    content: 'Talla máxima: 1.85 m (consultar si se excede).'
+  },
+  {
+    title: 'Seguridad',
+    content: 'Llenar y completar los formularios en línea. DNI, Pasaporte, CE, vigente y visible.'
+  },
+  {
+    title: 'Otros',
+    content: 'Llegar puntualmente (05:00 horas) al punto de encuentro: Hotel El Zarcillo, Paracas. Tener buen estado de salud.'
+  }
+];
+---
+
+<section id="requisitos" class="tandem-requirements" x-data="{ openIndex: 0 }">
+  <div class="requirements-container container">
+    <div class="requirements-layout">
+      <div class="requirements-left">
+        <span class="requirements-tag">Requisitos</span>
+        <h2 class="requirements-title">
+          Lo que necesitas<br />
+          <span class="requirements-accent">para saltar</span>
+        </h2>
+        <p class="requirements-desc">
+          Participantes deben cumplir todos los requisitos y completar el waiver. Tu seguridad es nuestra prioridad.
+        </p>
+        <div class="requirements-bmi">
+          <h3 class="bmi-title">Calculadora de IMC</h3>
+          <p class="bmi-desc">Verifica si cumples con el peso recomendado</p>
+          <a href="#calculadora-imc" class="bmi-link">
+            Calcular mi IMC
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="requirements-right">
+        {requirements.map((req, index) => (
+          <div class="req-item">
+            <button
+              class="req-question"
+              @click={`openIndex = openIndex === ${index} ? -1 : ${index}`}
+            >
+              <span class="req-title">{req.title}</span>
+              <span class="req-icon" :class={`{ 'open': openIndex === ${index} }`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </span>
+            </button>
+            <div
+              class="req-answer"
+              x-show={`openIndex === ${index}`}
+              x-collapse
+            >
+              <p class="req-content">{req.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tandem-requirements {
+    background-color: var(--white);
+    padding: var(--section-padding) 0;
+  }
+
+  .requirements-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .requirements-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .requirements-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .requirements-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .requirements-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .requirements-accent {
+    color: var(--primary-blue);
+  }
+
+  .requirements-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    margin-bottom: 32px;
+  }
+
+  .requirements-bmi {
+    padding: 24px;
+    background-color: var(--bg-celeste);
+    border-left: 4px solid var(--primary-blue);
+  }
+
+  .bmi-title {
+    font-family: var(--font-header);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .bmi-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--gray-text);
+    margin-bottom: 16px;
+  }
+
+  .bmi-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .bmi-link:hover {
+    color: var(--primary-dark);
+  }
+
+  .bmi-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  .bmi-link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .requirements-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .req-item {
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .req-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-header);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: var(--transition);
+  }
+
+  .req-question:hover {
+    color: var(--primary-blue);
+  }
+
+  .req-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .req-icon.open {
+    transform: rotate(180deg);
+  }
+
+  .req-answer {
+    overflow: hidden;
+  }
+
+  .req-content {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    padding-bottom: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .requirements-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tandem-requirements {
+      padding: 48px 0;
+    }
+
+    .req-question {
+      padding: 20px 0;
+      font-size: 15px;
+    }
+  }
+</style>

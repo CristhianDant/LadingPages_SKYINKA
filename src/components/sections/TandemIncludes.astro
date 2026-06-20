@@ -1,0 +1,233 @@
+---
+const includes = [
+  'Instructor Certificado y Habilitado como Piloto Tándem por la DGAC Perú',
+  'Transporte terrestre Paracas – Aeropuerto de Pisco (15 min)',
+  'Vuelo en avión hasta el punto de salto (20 min)',
+  'Transporte terrestre desde la zona de aterrizaje (Adrenarena) a Paracas (25 min)',
+  'Equipo completo y especializado para salto en tándem',
+  'Equipo de recuperación en tierra',
+  'Video en HD de obsequio, capturado por la cámara de mano del instructor'
+];
+---
+
+<section id="incluye" class="tandem-includes">
+  <div class="includes-container container">
+    <div class="includes-layout">
+      <div class="includes-image-wrapper">
+        <img src="/images/FOTO_2INSTRUCTORES.webp" alt="Instructor certificado de paracaidismo" class="includes-image" />
+        <div class="includes-image-overlay">
+          <span class="overlay-text">Instructores certificados por DGAC</span>
+        </div>
+      </div>
+      <div class="includes-content">
+        <span class="includes-tag">Qué Incluye</span>
+        <h2 class="includes-title">
+          Todo lo que necesitas<br />
+          <span class="includes-accent">para una experiencia completa</span>
+        </h2>
+        <p class="includes-desc">
+          Tu experiencia tándem incluye todo lo necesario para que solo te preocupes de disfrutar el momento.
+        </p>
+        <div class="includes-list">
+          {includes.map((item) => (
+            <div class="include-item">
+              <div class="include-check">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span class="include-text">{item}</span>
+            </div>
+          ))}
+        </div>
+        <a href="https://skipperu.odoo.com/shop/tdms-salto-tandem-safiro-3" class="btn-includes" target="_blank" rel="noopener">
+          Reservar Ahora
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tandem-includes {
+    background-color: var(--bg-dark);
+    padding: var(--section-padding) 0;
+  }
+
+  .includes-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .includes-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .includes-image-wrapper {
+    position: relative;
+  }
+
+  .includes-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+
+  .includes-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(27, 27, 25, 0.95) 100%);
+    padding: 40px 32px 32px;
+  }
+
+  .overlay-text {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+  }
+
+  .includes-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-light);
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .includes-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-light);
+  }
+
+  .includes-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .includes-accent {
+    color: var(--primary-blue);
+  }
+
+  .includes-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .includes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .include-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+  }
+
+  .include-item:hover {
+    background-color: rgba(77, 124, 234, 0.1);
+  }
+
+  .include-check {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-blue);
+  }
+
+  .include-check svg {
+    color: var(--text-primary);
+  }
+
+  .include-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .btn-includes {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-includes:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .btn-includes:hover svg {
+    transform: translateX(4px);
+  }
+
+  .btn-includes svg {
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 1024px) {
+    .includes-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .includes-image {
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tandem-includes {
+      padding: 48px 0;
+    }
+
+    .includes-image {
+      height: 320px;
+    }
+  }
+</style>

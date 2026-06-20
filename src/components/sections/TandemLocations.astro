@@ -1,0 +1,286 @@
+---
+const locations = [
+  {
+    title: 'Oficina Principal y Punto de Encuentro',
+    subtitle: 'Hotel El Zarcillo, Paracas',
+    description: 'Nuestra oficina se encuentra ubicada dentro del Hotel El Zarcillo, donde funciona nuestra base de operaciones y punto de encuentro para el desarrollo de todas nuestras actividades aerodeportivas.',
+    mapUrl: 'https://maps.app.goo.gl/czDdSZvC9ym2YPUn6',
+    time: '05:00 AM'
+  },
+  {
+    title: 'Zona de Embarque',
+    subtitle: 'Aeropuerto Internacional de Pisco',
+    description: 'El embarque de pasajeros tándem, paracaidistas y alumnos se realiza en el Aeropuerto Internacional de Pisco, ubicado aproximadamente a 15 minutos en automóvil desde Paracas.',
+    mapUrl: 'https://maps.app.goo.gl/zSKyi9jYV877KBup7',
+    time: '15 min desde Paracas'
+  },
+  {
+    title: 'Zona de Vuelo y Lanzamiento',
+    subtitle: 'Adrenarena, Km 253 Panamericana Sur',
+    description: 'Las operaciones de vuelo y lanzamiento se desarrollan en el centro de aventura Adrenarena, ubicado en el Km 253 de la Panamericana Sur, en pleno desierto costero, a aproximadamente 25 minutos en automóvil desde Paracas.',
+    mapUrl: 'https://maps.app.goo.gl/bRYBhVGmzLzKPpu18',
+    time: '25 min desde Paracas'
+  }
+];
+---
+
+<section id="ubicacion" class="tandem-locations">
+  <div class="locations-container container">
+    <div class="locations-header">
+      <span class="locations-tag">Zona de Operaciones</span>
+      <h2 class="locations-title">
+        Nos encontramos en<br />
+        <span class="locations-accent">Paracas, Pisco</span>
+      </h2>
+      <p class="locations-desc">
+        Distrito de Paracas, provincia de Pisco, departamento de Ica, a 300 kilómetros al sur de la ciudad de Lima.
+      </p>
+    </div>
+    <div class="locations-grid">
+      {locations.map((loc, index) => (
+        <article class="location-card">
+          <div class="location-number">0{index + 1}</div>
+          <h3 class="location-title">{loc.title}</h3>
+          <span class="location-subtitle">{loc.subtitle}</span>
+          <p class="location-desc">{loc.description}</p>
+          <div class="location-meta">
+            <div class="meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>{loc.time}</span>
+            </div>
+          </div>
+          <a href={loc.mapUrl} class="location-map-btn" target="_blank" rel="noopener">
+            Ver en Maps
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="locations-note">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <p class="note-text">
+        <strong>NOTA:</strong> Cualquier movimiento para el embarque o recojo se realiza coordinadamente con SKYDIVE INKA PERÚ, únicamente desde la base de operaciones ubicada en el Hotel "El Zarcillo".
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tandem-locations {
+    background-color: var(--bg-celeste);
+    padding: var(--section-padding) 0;
+  }
+
+  .locations-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .locations-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .locations-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 40px;
+  }
+
+  .locations-tag::before,
+  .locations-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .locations-tag::before {
+    left: 0;
+  }
+
+  .locations-tag::after {
+    right: 0;
+  }
+
+  .locations-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .locations-accent {
+    color: var(--primary-blue);
+  }
+
+  .locations-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .location-card {
+    background-color: var(--white);
+    padding: 40px 32px;
+    position: relative;
+    transition: var(--transition);
+  }
+
+  .location-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .location-number {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    color: var(--primary-blue);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .location-title {
+    font-family: var(--font-header);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .location-subtitle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  .location-desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    margin-bottom: 24px;
+  }
+
+  .location-meta {
+    margin-bottom: 24px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--gray-medium);
+  }
+
+  .meta-item svg {
+    color: var(--primary-blue);
+  }
+
+  .location-map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .location-map-btn:hover {
+    color: var(--primary-dark);
+  }
+
+  .location-map-btn:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  .location-map-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .locations-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 32px;
+    background-color: var(--white);
+    border-left: 4px solid var(--accent-gold);
+  }
+
+  .locations-note svg {
+    color: var(--accent-gold);
+    flex-shrink: 0;
+  }
+
+  .note-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-text);
+  }
+
+  .note-text strong {
+    color: var(--text-dark);
+  }
+
+  @media (max-width: 1024px) {
+    .locations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tandem-locations {
+      padding: 48px 0;
+    }
+
+    .location-card {
+      padding: 32px 24px;
+    }
+  }
+</style>

@@ -1,0 +1,401 @@
+---
+---
+
+<section class="tandem-hero-split">
+  <div class="hero-left">
+    <img src="/images/APERTURA.webp" alt="Salto tándem en caída libre" class="hero-image" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content-left">
+      <h1 class="hero-title">Salto<br />Tándem<br />Safiro</h1>
+      <div class="hero-price-block">
+        <span class="price-label">Desde</span>
+        <span class="price-value">S/. 1,970 <span class="price-igv">+ IGV</span></span>
+      </div>
+      <div class="hero-buttons">
+        <a href="https://skipperu.odoo.com/shop/tdms-salto-tandem-safiro-3" class="btn-reservar" target="_blank" rel="noopener">
+          Reservar Ahora
+        </a>
+        <a href="#experiencia" class="btn-explorar">
+          Explorar
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-content-right">
+      <span class="section-tag">Experiencia Tándem</span>
+      <h2 class="hero-description-title">
+        Vive la caída libre<br />
+        <span class="text-blue">sin experiencia previa</span>
+      </h2>
+      <p class="hero-description">
+        El salto tándem está diseñado para personas que NO son paracaidistas y deseen hacer caída libre como una experiencia de vida y aventura. Es el método más popular entre aquellos que lo hacen por primera vez, haciendo que este deporte extremo sea accesible para millones de personas alrededor del mundo.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">9,000</span>
+          <span class="stat-label">Pies de altura</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">140</span>
+          <span class="stat-label">MPH caída libre</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">60s</span>
+          <span class="stat-label">De caída libre</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="https://skipperu.odoo.com/shop/tdms-salto-tandem-safiro-3" class="btn-primary-large" target="_blank" rel="noopener">
+          Ver Opciones de Salto
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#incluye" class="btn-secondary-large">
+          Qué Incluye
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tandem-hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    margin-top: 84px;
+  }
+
+  .hero-left {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  .hero-content-left {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+
+  .hero-price-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 32px;
+  }
+
+  .price-label {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .price-value {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .price-igv {
+    font-size: 24px;
+    color: var(--text-secondary);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn-reservar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-reservar:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .btn-explorar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background-color: transparent;
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--text-primary);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-explorar:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-dark);
+  }
+
+  .hero-right {
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 80px 60px;
+  }
+
+  .hero-content-right {
+    max-width: 560px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .section-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .hero-description-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 3.5vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .hero-description {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    margin-bottom: 40px;
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding: 24px 0;
+    border-top: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--text-dark);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-medium);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 48px;
+    background-color: var(--gray-light);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn-primary-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-primary-large:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .btn-primary-large:hover svg {
+    transform: translateX(4px);
+  }
+
+  .btn-primary-large svg {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-secondary-large {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 36px;
+    background-color: transparent;
+    color: var(--text-dark);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--text-dark);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-secondary-large:hover {
+    background-color: var(--text-dark);
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 1024px) {
+    .tandem-hero-split {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-left {
+      height: 70vh;
+      min-height: 600px;
+    }
+
+    .hero-content-left {
+      padding: 40px;
+    }
+
+    .hero-right {
+      padding: 60px 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-left {
+      height: 60vh;
+      min-height: 500px;
+    }
+
+    .hero-content-left {
+      padding: 30px;
+    }
+
+    .hero-title {
+      font-size: 42px;
+    }
+
+    .price-value {
+      font-size: 36px;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+
+    .hero-right {
+      padding: 40px 20px;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .stat-divider {
+      width: 48px;
+      height: 1px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .btn-primary-large,
+    .btn-secondary-large {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

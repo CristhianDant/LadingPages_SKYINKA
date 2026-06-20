@@ -1,30 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/sections/Header.astro';
-import TandemHero from '../components/sections/TandemHero.astro';
-import RequirementsList from '../components/sections/RequirementsList.astro';
+import TandemHeroSplit from '../components/sections/TandemHeroSplit.astro';
+import TandemExperience from '../components/sections/TandemExperience.astro';
+import TandemRequirements from '../components/sections/TandemRequirements.astro';
+import TandemIncludes from '../components/sections/TandemIncludes.astro';
+import TandemPricing from '../components/sections/TandemPricing.astro';
+import TandemTerms from '../components/sections/TandemTerms.astro';
+import TandemLocations from '../components/sections/TandemLocations.astro';
 import BMICalculator from '../components/interactive/BMICalculator.astro';
-import PackageCard from '../components/sections/PackageCard.astro';
 import FAQAccordion from '../components/interactive/FAQAccordion.astro';
-import ActivityGrid from '../components/sections/ActivityGrid.astro';
+import TandemCTA from '../components/sections/TandemCTA.astro';
 import Footer from '../components/sections/Footer.astro';
 import MenuOverlay from '../components/interactive/MenuOverlay.astro';
 import WhatsappLogo from '../components/ui/WhatsappLogo.astro';
 ---
 
 <BaseLayout
-  title="Salto Tándem - Skydive Inka Perú"
-  description="Vive la experiencia de salto tándem en Pisco, Perú. Salta con instructors certificados y disfruta de vistas increíbles."
+  title="Salto Tándem Safiro - Skydive Inka Perú"
+  description="Vive la experiencia de salto tándem en Paracas, Perú. Salto desde 9,000 pies con instructor certificado. S/. 1,970 + IGV. Reserva ahora."
 >
   <Header />
   <MenuOverlay />
   <main>
-    <TandemHero />
-    <RequirementsList />
+    <TandemHeroSplit />
+    <TandemExperience />
+    <TandemRequirements />
+    <TandemIncludes />
+    <TandemPricing />
     <BMICalculator />
-    <PackageCard />
+    <TandemTerms />
+    <TandemLocations />
     <FAQAccordion />
-    <ActivityGrid />
+    <TandemCTA />
   </main>
   <Footer />
   <WhatsappLogo />

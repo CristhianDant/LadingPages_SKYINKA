@@ -1,0 +1,313 @@
+---
+const terms = [
+  {
+    title: 'Servicios Adicionales No Incluidos',
+    items: [
+      'Transporte a Paracas, alojamiento y alimentación'
+    ]
+  },
+  {
+    title: 'Instrucciones Específicas',
+    items: [
+      'Punto de encuentro: Hotel "El Zarcillo", en Paracas',
+      'Hora de presentación: 05:00 A.M.',
+      'Si no te presentas el día del salto, perderás el 100% de tu inversión',
+      'Reprogramaciones deben solicitarse con un mínimo de 72 horas de anticipación',
+      'La actividad se realiza según el orden de llegada',
+      'Tiempo de espera estimado entre un vuelo y el siguiente es de 2 horas',
+      'Condiciones Meteorológicas No Favorables pueden causar suspensión o reprogramación',
+      'Entrega de copia del video de obsequio en 5 días hábiles después del salto'
+    ]
+  },
+  {
+    title: 'Vestimenta y Alimentación',
+    items: [
+      'Ropa deportiva, sin objetos de valor, bloqueador',
+      'Prohibido el uso de aretes, anillos, cadenas, prendas metálicas',
+      'Consumir alimentos ligeros, nutritivos e hidratantes',
+      'No consumir lácteos antes del salto'
+    ]
+  },
+  {
+    title: 'Formularios y Documentación',
+    items: [
+      'Llenar los formularios virtuales sobre declaración jurada de buena salud y waiver',
+      'Si no está de acuerdo con algún punto, desista de saltar'
+    ]
+  },
+  {
+    title: 'Políticas de Imágenes y Derechos',
+    items: [
+      'SKYDIVE INKA PERÚ es propietario de las fotografías y videos generados durante el embarque, vuelo y lanzamiento',
+      'Nos reservamos el derecho de emplearlos para promoción y difusión del Paracaidismo',
+      'Nos reservamos el derecho de admisión ante indisciplina Aerodeportiva'
+    ]
+  },
+  {
+    title: 'Responsabilidad',
+    items: [
+      'Cualquier imprecisión respecto del estado de salud física y mental es exclusivamente responsable de cualquier incidente',
+      'Cualquier duda, consulte con un profesional especialista'
+    ]
+  },
+  {
+    title: 'Métodos de Pago',
+    items: [
+      'Transferencia bancaria (sin recargo)',
+      'Tarjeta de crédito o débito (link de pago con recargo del 5%)',
+      'Pago en efectivo el día del salto (sin reserva, sujeto a disponibilidad)',
+      'Prioridad para quienes tengan reserva confirmada'
+    ]
+  }
+];
+---
+
+<section id="terminos" class="tandem-terms">
+  <div class="terms-container container">
+    <div class="terms-header">
+      <span class="terms-tag">Términos y Condiciones</span>
+      <h2 class="terms-title">
+        Importante saber<br />
+        <span class="terms-accent">antes de saltar</span>
+      </h2>
+    </div>
+    <div class="terms-grid">
+      {terms.map((section) => (
+        <div class="term-section">
+          <h3 class="term-section-title">{section.title}</h3>
+          <ul class="term-list">
+            {section.items.map((item) => (
+              <li class="term-item">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="terms-steps">
+      <h3 class="steps-title">Pasos para Reservar tu Salto</h3>
+      <div class="steps-grid">
+        <div class="step-item">
+          <span class="step-number">01</span>
+          <p class="step-text">Realiza la transferencia bancaria o solicita el enlace de pago con tarjeta de crédito o débito (recargo del 5%).</p>
+        </div>
+        <div class="step-item">
+          <span class="step-number">02</span>
+          <p class="step-text">Llenar y enviar el formulario virtual de declaración jurada de buen estado de salud, manifiesto de vuelo y waiver.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-number">03</span>
+          <p class="step-text">Menores de edad (16 años cumplidos) deben presentar permiso notarial y estar acompañados por el padre o la madre.</p>
+        </div>
+      </div>
+    </div>
+    <div class="terms-important">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <p class="important-text">
+        <strong>IMPORTANTE:</strong> Las operaciones pueden suspenderse y/o reprogramarse. No realizamos reembolsos de ningún tipo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tandem-terms {
+    background-color: var(--white);
+    padding: var(--section-padding) 0;
+  }
+
+  .terms-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .terms-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .terms-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 40px;
+  }
+
+  .terms-tag::before,
+  .terms-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .terms-tag::before {
+    left: 0;
+  }
+
+  .terms-tag::after {
+    right: 0;
+  }
+
+  .terms-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+  }
+
+  .terms-accent {
+    color: var(--primary-blue);
+  }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 64px;
+  }
+
+  .term-section {
+    padding: 32px;
+    background-color: var(--bg-celeste);
+  }
+
+  .term-section-title {
+    font-family: var(--font-header);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-blue);
+  }
+
+  .term-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .term-item {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-text);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .term-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: 700;
+  }
+
+  .terms-steps {
+    margin-bottom: 48px;
+  }
+
+  .steps-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .step-item {
+    padding: 32px;
+    background-color: var(--bg-dark);
+    position: relative;
+  }
+
+  .step-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--primary-blue);
+    opacity: 0.3;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .step-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .terms-important {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 32px;
+    background-color: rgba(204, 51, 102, 0.1);
+    border-left: 4px solid var(--pink-accent);
+  }
+
+  .terms-important svg {
+    color: var(--pink-accent);
+    flex-shrink: 0;
+  }
+
+  .important-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-dark);
+  }
+
+  .important-text strong {
+    color: var(--pink-accent);
+  }
+
+  @media (max-width: 1024px) {
+    .terms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tandem-terms {
+      padding: 48px 0;
+    }
+
+    .term-section {
+      padding: 24px;
+    }
+
+    .step-item {
+      padding: 24px;
+    }
+  }
+</style>

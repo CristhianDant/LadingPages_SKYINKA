@@ -1,65 +1,57 @@
 ---
 const faqs = [
   {
-    question: '¿Qué hago si no puedo hacer una reserva en línea?',
-    answer: 'Si tienes problemas con la reserva en línea, puedes contactarnos por teléfono o email. Nuestro equipo te ayudará a completar tu reserva de forma manual.'
-  },
-  {
-    question: '¿Cuál es tu política de reembolso?',
-    answer: 'Ofrecemos reembolso completo si cancelas con al menos 48 horas de anticipación. Cancelaciones con menos de 48 horas pueden tener un cargo del 50%.'
-  },
-  {
     question: '¿Qué es un salto tándem?',
-    answer: 'Un salto tándem es una experiencia de paracaidismo donde saltas atado a un instructor certificado. No necesitas experiencia previa, el instructor se encarga de todo.'
+    answer: 'El salto tándem está diseñado para personas que NO son paracaidistas y deseen hacer caída libre como una experiencia de vida y aventura. Es el método más popular entre aquellos que lo hacen por primera vez, haciendo que este deporte extremo sea accesible para millones de personas alrededor del mundo.'
   },
   {
-    question: '¿Qué rápido voy a caer?',
-    answer: 'Durante un salto tándem, la velocidad de caída libre es de aproximadamente 200 km/h (120 mph). Después de abrir el paracaídas, la velocidad desciende a unos 20 km/h.'
+    question: '¿Cuál es la edad mínima para saltar?',
+    answer: 'Edad mínima: 16 años cumplidos, con permiso notarial y presencia de padre o madre o apoderado el día del salto.'
   },
   {
-    question: '¿Es seguro el paracaidismo?',
-    answer: 'El paracaidismo tándem es una de las experiencias de aventura más seguras. Utilizamos equipos de última generación y contamos con instructores certificados internacionalmente.'
+    question: '¿Cuál es el peso máximo permitido?',
+    answer: 'Peso máximo: 95 kg (consultar si se excede). Talla máxima: 1.85 m (consultar si se excede).'
   },
   {
-    question: '¿Hay requisitos físicos para un salto tándem?',
-    answer: 'Debes tener entre 18 y 65 años, pesar entre 40 kg y 100 kg, y estar en buen estado de salud general. No se permiten personas con problemas cardíacos o epilepsia.'
+    question: '¿Qué debo llevar el día del salto?',
+    answer: 'Ropa deportiva, sin objetos de valor, bloqueador solar. Prohibido el uso de aretes, anillos, cadenas, prendas metálicas por tu seguridad. Consumir alimentos ligeros, nutritivos e hidratantes. Recomendamos no consumir lácteos antes del salto.'
   },
   {
-    question: '¿Por qué el calendario no muestra las fechas que quiero reservar?',
-    answer: 'Las fechas disponibles dependen de la demanda y las condiciones climáticas. Si no encuentras la fecha que buscas, contacta con nuestro equipo para opciones alternativas.'
+    question: '¿A qué hora debo llegar?',
+    answer: 'Llegar puntualmente (05:00 horas) al punto de encuentro: Hotel El Zarcillo, Paracas. Si no te presentas el día del salto, perderás el 100% de tu inversión.'
   },
   {
-    question: '¿Qué debo usar?',
-    answer: 'Ropa cómoda y zapatos deportivos. Evita faldas, pantalones anchos o sandalias. Proveemos todos los equipos necesarios para el salto.'
+    question: '¿Qué pasa si el clima no es favorable?',
+    answer: 'Condiciones Meteorológicas No Favorables pueden causar suspensión o reprogramación del salto. No realizamos reembolsos. Reprogramamos la actividad.'
   },
   {
-    question: '¿Puedo usar lentes o gafas durante mi salto tándem?',
-    answer: 'Sí, puedes usar lentes o gafas. Tenemos gafas especiales que se ajustan sobre tus lentes para protegerlos durante el salto.'
+    question: '¿Cuánto dura la experiencia completa?',
+    answer: 'La experiencia incluye transporte Paracas-Aeropuerto Pisco (15 min), vuelo en avión hasta el punto de salto (20 min), caída libre de 60 segundos a 140 mph, y transporte de regreso a Paracas (25 min). Tiempo de espera estimado entre vuelos: 2 horas.'
   },
   {
-    question: '¿Qué debo traer?',
-    answer: 'Solo tu identificación oficial, ropa cómoda y muchas ganas de pasarla bien. Todo el equipo de paracaidismo es proporcionado por nosotros.'
+    question: '¿Qué métodos de pago aceptan?',
+    answer: 'Transferencia bancaria (sin recargo), tarjeta de crédito o débito (link de pago con recargo del 5%), pago en efectivo el día del salto (sin reserva, sujeto a disponibilidad). Prioridad para quienes tengan reserva confirmada.'
   },
   {
-    question: '¿Cuánto dura la experiencia completa del paracaidismo?',
-    answer: 'La experiencia completa dura aproximadamente 3-4 horas, incluyendo capacitación, preparación, el vuelo, el salto y el tiempo de vuelo libre.'
+    question: '¿Qué incluye el video de obsequio?',
+    answer: 'Video en HD de obsequio, capturado por la cámara de mano del instructor. Entrega de copia en 5 días hábiles después del salto. En caso de falla técnica y/o humana de la cámara, no se efectuará reembolso por tratarse de un obsequio.'
   },
   {
-    question: '¿Qué significa \'standby\'?',
-    answer: 'Standby significa que tu reserva está confirmada pero pendiente de confirmación final dependiendo de las condiciones climáticas del día del salto.'
-  },
-  {
-    question: '¿El clima afecta el paracaidismo?',
-    answer: 'Sí, el clima es un factor crucial. No saltamos con lluvia, vientos fuertes o nubosidad baja. Si las condiciones no son óptimas, reprogramaremos tu salto sin costo adicional.'
+    question: '¿Puedo reprogramar mi salto?',
+    answer: 'Reprogramaciones deben solicitarse con un mínimo de 72 horas de anticipación. Las operaciones pueden suspenderse y/o reprogramarse a la siguiente programación. No realizamos reembolsos de ningún tipo.'
   }
 ];
 ---
 
-<section id="faq" class="faq-section" x-data="{ openIndex: null }">
-  <div class="container">
-    <h2 class="h2 faq-title">Importante Saber</h2>
-    <a href="#reservar" class="faq-btn">Reservar Ahora</a>
-
+<section id="faq" class="tandem-faq" x-data="{ openIndex: null }">
+  <div class="faq-container container">
+    <div class="faq-header">
+      <span class="faq-tag">Preguntas Frecuentes</span>
+      <h2 class="faq-title">
+        Lo que necesitas<br />
+        <span class="faq-accent">saber antes de saltar</span>
+      </h2>
+    </div>
     <div class="faq-list">
       {faqs.map((faq, index) => (
         <div class="faq-item">
@@ -67,69 +59,96 @@ const faqs = [
             class="faq-question"
             @click={`openIndex = openIndex === ${index} ? null : ${index}`}
           >
-            <span>{faq.question}</span>
+            <span class="faq-question-text">{faq.question}</span>
             <span class="faq-icon" :class={`{ 'open': openIndex === ${index} }`}>
-              <span x-text={`openIndex === ${index} ? '−' : '+'`}></span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
             </span>
           </button>
           <div
             class="faq-answer"
             x-show={`openIndex === ${index}`}
-            x-transition:enter="faq-enter"
-            x-transition:enter-start="faq-enter-start"
-            x-transition:enter-end="faq-enter-end"
-            x-transition:leave="faq-leave"
-            x-transition:leave-start="faq-leave-start"
-            x-transition:leave-end="faq-leave-end"
+            x-collapse
           >
-            <p>{faq.answer}</p>
+            <p class="faq-answer-text">{faq.answer}</p>
           </div>
         </div>
       ))}
+    </div>
+    <div class="faq-cta">
+      <p class="faq-cta-text">¿Tienes más preguntas?</p>
+      <a href="https://wa.me/51995955412" class="btn-faq-whatsapp" target="_blank" rel="noopener">
+        Contactar por WhatsApp
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  .faq-section {
+  .tandem-faq {
     background-color: var(--white);
-    padding: 80px 0;
+    padding: var(--section-padding) 0;
+  }
+
+  .faq-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .faq-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 40px;
+  }
+
+  .faq-tag::before,
+  .faq-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .faq-tag::before {
+    left: 0;
+  }
+
+  .faq-tag::after {
+    right: 0;
   }
 
   .faq-title {
-    color: var(--text-dark);
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .faq-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 32px;
-    background-color: var(--primary-blue);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
     text-transform: uppercase;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    text-decoration: none;
-    margin: 0 auto 40px;
-    display: block;
-    width: fit-content;
+    color: var(--text-dark);
+    font-weight: 400;
   }
 
-  .faq-btn:hover {
-    background-color: var(--primary-dark);
+  .faq-accent {
+    color: var(--primary-blue);
   }
 
   .faq-list {
     max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto 48px;
   }
 
   .faq-item {
@@ -141,15 +160,15 @@ const faqs = [
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 16px 0;
+    padding: 24px 0;
     background: none;
     border: none;
     cursor: pointer;
     text-align: left;
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--gray-dark);
+    font-family: var(--font-header);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
     transition: var(--transition);
   }
 
@@ -158,11 +177,8 @@ const faqs = [
   }
 
   .faq-icon {
-    font-size: 18px;
-    color: var(--gray-dark);
-    transition: transform 0.3s ease;
     flex-shrink: 0;
-    margin-left: 16px;
+    transition: transform 0.3s ease;
   }
 
   .faq-icon.open {
@@ -171,41 +187,60 @@ const faqs = [
 
   .faq-answer {
     overflow: hidden;
-    padding-bottom: 16px;
   }
 
-  .faq-answer p {
+  .faq-answer-text {
+    font-family: var(--font-body);
     font-size: 14px;
-    line-height: 1.6;
-    color: var(--gray-medium);
+    line-height: 1.7;
+    color: var(--gray-text);
+    padding-bottom: 24px;
   }
 
-  /* Transitions */
-  .faq-enter {
-    transition: all 0.3s ease;
+  .faq-cta {
+    text-align: center;
+    padding: 48px;
+    background-color: var(--bg-celeste);
   }
 
-  .faq-enter-start {
-    opacity: 0;
-    max-height: 0;
+  .faq-cta-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--gray-text);
+    margin-bottom: 20px;
   }
 
-  .faq-enter-end {
-    opacity: 1;
-    max-height: 200px;
+  .btn-faq-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--whatsapp-green);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
   }
 
-  .faq-leave {
-    transition: all 0.3s ease;
+  .btn-faq-whatsapp:hover {
+    background-color: #1da851;
   }
 
-  .faq-leave-start {
-    opacity: 1;
-    max-height: 200px;
-  }
+  @media (max-width: 768px) {
+    .tandem-faq {
+      padding: 48px 0;
+    }
 
-  .faq-leave-end {
-    opacity: 0;
-    max-height: 0;
+    .faq-question {
+      padding: 20px 0;
+      font-size: 15px;
+    }
+
+    .faq-cta {
+      padding: 32px 24px;
+    }
   }
 </style>
