@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import PrecalHeroLeft from '../components/sections/PrecalHeroLeft.astro';
+import PrecalPhases from '../components/sections/PrecalPhases.astro';
+import PrecalCTA from '../components/sections/PrecalCTA.astro';
+import PrecalRequirements from '../components/sections/PrecalRequirements.astro';
+import PrecalIncludes from '../components/sections/PrecalIncludes.astro';
+import PrecalProcedure from '../components/sections/PrecalProcedure.astro';
+import TandemLocations from '../components/sections/TandemLocations.astro';
+import PrecalFAQ from '../components/sections/PrecalFAQ.astro';
+import PrecalFinalCTA from '../components/sections/PrecalFinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import MenuOverlay from '../components/interactive/MenuOverlay.astro';
+import WhatsappLogo from '../components/ui/WhatsappLogo.astro';
+---
+
+<BaseLayout
+  title="Programa Regular de Caída Libre PRECAL - Skydive Inka Perú"
+  description="Conviértete en paracaidista certificado con el Programa Regular de Caída Libre (PRECAL) de Skydive Inka Perú. 4 fases, instructores certificados, salto desde aeronave en Paracas."
+>
+  <Header />
+  <MenuOverlay />
+  <main>
+    <div class="precal-sticky-wrapper">
+      <div class="precal-sticky-left">
+        <PrecalHeroLeft />
+      </div>
+      <div class="precal-sticky-right">
+        <PrecalPhases />
+        <PrecalCTA />
+        <PrecalRequirements />
+        <PrecalIncludes />
+      </div>
+    </div>
+    <PrecalProcedure />
+    <TandemLocations />
+    <PrecalFAQ />
+    <PrecalFinalCTA />
+  </main>
+  <Footer />
+  <WhatsappLogo />
+</BaseLayout>
+
+<style is:global>
+  .precal-sticky-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 84px;
+  }
+
+  .precal-sticky-left {
+    position: sticky;
+    top: 84px;
+    width: 50vw;
+    min-width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+    align-self: flex-start;
+  }
+
+  .precal-sticky-right {
+    flex: 1;
+    width: 50vw;
+  }
+
+  @media (max-width: 1024px) {
+    .precal-sticky-wrapper {
+      flex-direction: column;
+      margin-top: 0;
+    }
+
+    .precal-sticky-left {
+      position: static;
+      width: 100%;
+      min-width: 100%;
+      height: 70vh;
+      min-height: 600px;
+    }
+
+    .precal-sticky-right {
+      width: 100%;
+    }
+  }
+</style>

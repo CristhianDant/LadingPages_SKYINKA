@@ -1,0 +1,442 @@
+---
+import StaffCard from '../ui/StaffCard.astro';
+
+const leadership = [
+  {
+    name: 'David',
+    role: 'Fundador & Instructor Tándem',
+    description: 'Marino retirado con 35 años de servicio efectivos al país. Entre otras capacidades operacionales afines a su profesión, desarrolló y consolidó el paracaidismo en todos sus ámbitos de instrucción, formación, entrenamiento, especialización, equipamiento y conducción. Posteriormente, consolidó su formación como paracaidista en las principales escuelas de paracaidismo de los Estados Unidos de América, donde obtuvo las habilitaciones de Coach, Piloto de Wingsuit, Instructor Tándem y Examinador Tándem. Posee Licencia de Paracaidista Nivel D – Experto, avalado por la Asociación Aerodeportiva de Paracaidismo Skydive Inka Perú (SKIP), certificada por la Dirección General de Aeronáutica Civil del Perú (DGAC) y por la United States Parachute Association (USPA). El 20 de febrero de 2014, fundó la Asociación Aerodeportiva de Paracaidismo Skydive Inka Perú (SKIP), organización que actualmente representa legalmente y desde la cual lidera iniciativas privadas orientadas al desarrollo, fortalecimiento, capacitación continua y promoción del paracaidismo en el Perú y en el extranjero. Su trayectoria profesional y aerodeportiva lo precede, la misma que está cimentada en principios de lealtad, disciplina y permanente espíritu de superación, valores que han definido su liderazgo y compromiso con la excelencia.',
+    badges: ['Coach USPA', 'Piloto Wingsuit', 'Examinador Tándem', 'Licencia D - Experto']
+  },
+  {
+    name: 'Pedro',
+    role: 'Instructor & Maestro de Salto',
+    description: 'Militar retirado con más de 30 años de servicio al Perú. Se calificó en el arma de Infantería y, posteriormente, desarrolló una sólida especialización en paracaidismo, caída libre, maestro de salto y saltos operacionales. Asimismo, se desempeñó como instructor en la Escuela de Paracaidistas del Ejército, entre otras capacidades operacionales vinculadas a su trayectoria profesional. Posteriormente, consolidó su formación como paracaidista en la Asociación Aerodeportiva de Paracaidismo Skydive Inka Perú (SKIP), institución líder del paracaidismo en el Perú, donde obtuvo las habilitaciones de instructor y maestro de salto de caída libre. Posee Licencia de Paracaidista Nivel D – Experto, avalada por SKIP, certificada por la DGAC. Su trayectoria profesional y aerodeportiva ha estado marcada por principios de lealtad, disciplina y permanente espíritu de superación, valores que reflejan su compromiso con la formación, la seguridad y el desarrollo del paracaidismo.',
+    badges: ['Instructor', 'Maestro de Salto', 'Licencia D - Experto']
+  },
+  {
+    name: 'Boris',
+    role: 'Instructor & Piloto Tándem',
+    description: 'Oficial del Ejército en retiro con 35 años de servicios efectivos e ininterrumpidos al país. Entre otras capacidades operacionales afines a su profesión, desarrolló una sólida trayectoria en la Escuela de Paracaidistas del Ejército, donde se especializó en técnicas de paracaidismo básico, maestro de salto, caída libre, saltos operacionales (HALO-HAHO) y piloto tándem. Posteriormente, consolidó su formación internacional como maestro de salto en el Centro de Instrucción Paracaidista del Ejército de Brasil, desempeñándose como instructor de todas estas especialidades. Posee la Licencia de Paracaidista Nivel D – Experto con las habilitaciones de Instructor, Maestro de Salto y Piloto Tándem, avalada por la DGAC. Asimismo, cuenta con la Licencia Nivel D de la USPA y la certificación internacional como Instructor Tándem por United Parachute Technologies (UPT) para el sistema SIGMA. Miembro del staff de SKIP desde su creación, organización desde la cual lidera una permanente contribución a la difusión del paracaidismo como un deporte seguro y confiable.',
+    badges: ['Instructor', 'Maestro de Salto', 'Piloto Tándem', 'HALO-HAHO', 'Licencia D - Experto']
+  },
+  {
+    name: 'Carlos',
+    role: 'Médico & Instructor',
+    description: 'Médico de profesión, especialista en Genética Médica y miembro destacado del equipo de Skydive Inka Perú, donde combina el rigor científico con la pasión por el paracaidismo deportivo. Formado como paracaidista y habilitado como Instructor y Maestro de Salto en SKIP, y certificado por la DGAC. En el ámbito internacional, cursó y culminó satisfactoriamente el programa de Coach de la USPA. Carlos ha realizado programas de entrenamiento en zonas de salto de Estados Unidos y México, consolidando su experiencia diversa de alto nivel. Se distingue por un enfoque metódico, disciplinado, orientado a la excelencia, cualidades esenciales en una actividad que exige precisión, preparación continua y responsabilidad. Contribuye activamente en la formación técnica de nuevos estudiantes y fortalece la cultura organizacional de la seguridad preventiva. Posee Licencia de Paracaidista Nivel C – Avanzado, avalado por SKIP, certificada por la DGAC y por la USPA.',
+    badges: ['Coach USPA', 'Instructor', 'Maestro de Salto', 'Licencia C - Avanzado']
+  },
+  {
+    name: 'Mirko',
+    role: 'Arquitecto & Instructor',
+    description: 'Arquitecto y paracaidista deportivo, integrante del equipo de Skydive Inka Perú, donde participa activamente en el fortalecimiento de la formación técnica y la cultura de seguridad dentro de la comunidad aerodeportiva. Formado como paracaidista y habilitado como Instructor y Maestro de Salto en SKIP, y certificado por la DGAC. Ha participado e integrado entrenamientos especializados de alta performance para grandes formaciones, así como participado en actividades internacionales orientadas al desarrollo técnico-operacional, contribuyendo de esta manera a enriquecer el paracaidismo en el Perú. Su enfoque se caracteriza por la disciplina, el criterio técnico y la seguridad preventiva, contribuyendo en procesos de formación y evaluación de nuevos paracaidistas, camarógrafos aéreos y pilotos Wingsuit.',
+    badges: ['Instructor', 'Maestro de Salto', 'Grandes Formaciones']
+  }
+];
+
+const team = [
+  {
+    name: 'Mauricio',
+    role: 'Camera Flyer',
+    description: 'Emprendedor y director de empresas en los rubros de arquitectura, construcción y hospitalidad. En paralelo a su vida profesional, ha desarrollado una fuerte pasión por la aviación y los deportes aéreos, participando activamente en la comunidad de paracaidismo deportivo como camera flyer. Cuenta con más de 250 saltos realizados en distintos dropzones de Perú, Estados Unidos, República Dominicana y Brasil, experiencia que le ha permitido desarrollar seguridad, criterio en vuelo, conciencia situacional y capacidad de trabajo en equipo en entornos de alta exigencia. Actualmente posee la Licencia C de paracaidismo deportivo. Disfruta especialmente capturar la energía y emoción de cada salto desde una perspectiva aérea, combinando técnica, creatividad y precisión en vuelo.',
+    badges: ['Camera Flyer', '250+ Saltos', 'Licencia C']
+  },
+  {
+    name: 'Yaan',
+    role: 'Packer & Paracaidista',
+    description: 'Militar en actividad al servicio del Perú desde el año 2012, especializado como Infante de Marina y calificado como Comando Anfibio. Entre sus capacidades operacionales afines a su profesión, ha desarrollado experiencia en operaciones militares, paracaidismo militar y deportivo, así como en la preparación técnica y seguridad operacional vinculada a esta disciplina. Es Paracaidista Militar Básico y Paracaidista Militar Comandado, consolidando posteriormente su formación como Paracaidista Deportivo en SKIP, donde además se desempeña como packer, encargado del doblado, inspección y acondicionamiento minucioso del velamen principal, garantizando la seguridad y operatividad de los equipos de salto. Posee la Licencia A de Paracaidista Deportivo, avalada por SKIP, certificada por la DGAC y por la USPA.',
+    badges: ['Comando Anfibio', 'Packer', 'Paracaidista Militar', 'Licencia A']
+  },
+  {
+    name: 'Luis',
+    role: 'Paracaidista en Formación',
+    description: 'Ingeniero de sistemas especializado en gobierno de datos del rubro financiero. Apasionado por la aviación y los deportes, ha desarrollado un fuerte compromiso con el paracaidismo, por lo que se volvió miembro del equipo de Skydive Inka Perú, participando activamente en la difusión de este deporte en el Perú. Desarrolla su formación como paracaidista deportivo en SKIP, organización en la cual busca potenciar sus capacidades operacionales. Su evolución en este deporte está enfocada en alcanzar las máximas habilitaciones de la disciplina, proyectándose a corto y mediano plazo como instructor, maestro de salto y camera flyer. Posee la Licencia A de Paracaidista Deportivo.',
+    badges: ['Licencia A', 'Data Governance', 'Audiovisual']
+  },
+  {
+    name: 'Cesar',
+    role: 'Paracaidista en Formación',
+    description: 'Profesional del sector tecnológico y paracaidista en formación dentro del equipo de Skydive Inka Perú. Ha desarrollado una fuerte motivación por la disciplina aerodeportiva, participando en procesos de instrucción y entrenamiento orientados a consolidar sus capacidades como paracaidista. En SKIP, Cesar canaliza su compromiso hacia el aprendizaje continuo y el fortalecimiento de la cultura de seguridad. Su meta a corto y mediano plazo es alcanzar habilitaciones avanzadas como instructor y maestro de salto. Posee la Licencia A de Paracaidista Deportivo. Complementa su perfil con experiencia en producción audiovisual aplicada al deporte.',
+    badges: ['Licencia A', 'Data Governance', 'Audiovisual']
+  },
+  {
+    name: 'Manuel',
+    role: 'Paracaidista en Formación',
+    description: 'Profesional en tecnologías de la información y miembro activo del equipo de Skydive Inka Perú, donde desarrolla su formación como paracaidista deportivo. Su enfoque está orientado a la adquisición progresiva de capacidades operacionales dentro de la disciplina, con proyección hacia habilitaciones de instructor y maestro de salto. Manuel aporta al equipo una perspectiva técnica respaldada por su experiencia en gobierno y gestión de datos. Posee la Licencia A de Paracaidista Deportivo y se encuentra comprometido con el crecimiento del paracaidismo en el Perú.',
+    badges: ['Licencia A', 'Data Governance', 'Audiovisual']
+  },
+  {
+    name: 'Elvis',
+    role: 'Paracaidista en Formación',
+    description: 'Profesional de sistemas con especialización en analítica de datos, miembro de Skydive Inka Perú. Desarrolla su formación como paracaidista deportivo con miras a obtener habilitaciones avanzadas que le permitan contribuir como instructor y maestro de salto. Elvis combina su disciplina profesional con la pasión por el paracaidismo, participando activamente en actividades de difusión del deporte. Posee la Licencia A de Paracaidista Deportivo y complementa su perfil con habilidades en producción audiovisual.',
+    badges: ['Licencia A', 'Data Governance', 'Audiovisual']
+  },
+  {
+    name: 'Jonathan',
+    role: 'Paracaidista en Formación',
+    description: 'Ingeniero de sistemas y entusiasta del paracaidismo deportivo, miembro del equipo de Skydive Inka Perú. Su formación en SKIP está orientada a desarrollar las competencias necesarias para avanzar hacia habilitaciones superiores como instructor y camera flyer. Jonathan aporta al equipo experiencia en gobierno de datos y una visión tecnológica aplicada al deporte. Posee la Licencia A de Paracaidista Deportivo y participa activamente en la producción de contenido audiovisual para la difusión del paracaidismo.',
+    badges: ['Licencia A', 'Data Governance', 'Audiovisual']
+  }
+];
+---
+
+<section class="staff-section">
+  <div class="staff-banner">
+    <div class="banner-bg"></div>
+    <div class="banner-grid"></div>
+    <div class="banner-content">
+      <div class="banner-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Skydive Inka Perú</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="banner-title">Nuestro Equipo</h1>
+      <p class="banner-subtitle">
+        Detrás de cada salto hay un equipo de profesionales apasionados por el paracaidismo.
+        Instructores certificados, personal técnico especializado y una comunidad comprometida
+        con la seguridad y la excelencia.
+      </p>
+      <div class="banner-stats">
+        <div class="stat">
+          <span class="stat-value">12</span>
+          <span class="stat-label">Profesionales</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">150+</span>
+          <span class="stat-label">Años combinados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">2014</span>
+          <span class="stat-label">Fundación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="staff-container">
+    <!-- LIDERAZGO -->
+    <div class="section-heading">
+      <div class="heading-decor">
+        <span class="decor-line"></span>
+        <span class="decor-diamond">◆</span>
+        <span class="decor-line"></span>
+      </div>
+      <h2 class="section-title">Liderazgo</h2>
+      <p class="section-subtitle">Comando y formación del equipo. La experiencia que garantiza cada salto.</p>
+    </div>
+    <div class="leadership-grid">
+      {leadership.map((member, index) => (
+        <StaffCard
+          name={member.name}
+          role={member.role}
+          description={member.description}
+          badges={member.badges}
+          gradientIndex={index}
+          variant="leadership"
+          memberNumber={index + 1}
+        />
+      ))}
+    </div>
+
+    <!-- EQUIPO -->
+    <div class="section-heading">
+      <div class="heading-decor">
+        <span class="decor-line"></span>
+        <span class="decor-diamond">◆</span>
+        <span class="decor-line"></span>
+      </div>
+      <h2 class="section-title">Staff & Tripulación</h2>
+      <p class="section-subtitle">El equipo operativo que hace posible cada misión. Especialistas en constante formación.</p>
+    </div>
+    <div class="team-grid">
+      {team.map((member, index) => (
+        <StaffCard
+          name={member.name}
+          role={member.role}
+          description={member.description}
+          badges={member.badges}
+          gradientIndex={index + 5}
+          memberNumber={index + 6}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== BANNER ===== */
+  .staff-section {
+    margin-top: 84px;
+    background-color: var(--bg-celeste);
+  }
+
+  .staff-banner {
+    position: relative;
+    padding: 120px 0 100px;
+    text-align: center;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    isolation: isolate;
+  }
+
+  .banner-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(77, 124, 234, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 15% 90%, rgba(255, 209, 0, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse 45% 35% at 85% 80%, rgba(204, 51, 102, 0.08) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(27, 27, 25, 0) 0%, rgba(27, 27, 25, 0.4) 100%);
+    pointer-events: none;
+  }
+
+  .banner-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 70%);
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .banner-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(77, 124, 234, 0.5);
+  }
+
+  .eyebrow-text {
+    font-family: var(--font-header);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--primary-blue);
+  }
+
+  .banner-title {
+    font-family: var(--font-heading);
+    font-size: clamp(52px, 7vw, 88px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .banner-subtitle {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  .banner-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--primary-dark);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-text);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* ===== CONTAINER ===== */
+  .staff-container {
+    padding: 80px 0 100px;
+    background-color: var(--bg-celeste);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
+  }
+
+  /* ===== SECTION HEADINGS ===== */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .heading-decor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .decor-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: rgba(77, 124, 234, 0.4);
+  }
+
+  .decor-diamond {
+    font-size: 8px;
+    color: var(--primary-blue);
+    opacity: 0.6;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--gray-text);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ===== LEADERSHIP GRID (3 cols on desktop, spans wider cards) ===== */
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+
+  /* First card (founder) spans 2 cols */
+  .leadership-grid > :first-child {
+    grid-column: span 2;
+  }
+
+  /* ===== TEAM GRID (4 cols on desktop) ===== */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1200px) {
+    .leadership-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .leadership-grid > :first-child {
+      grid-column: span 2;
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .staff-banner {
+      padding: 80px 0 64px;
+    }
+
+    .banner-title {
+      font-size: clamp(40px, 10vw, 56px);
+    }
+
+    .banner-stats {
+      gap: 20px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+    }
+
+    .stat-divider {
+      display: none;
+    }
+
+    .staff-container {
+      padding: 56px var(--container-padding-x) 72px;
+    }
+
+    .section-heading {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 32px;
+    }
+
+    .leadership-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .leadership-grid > :first-child {
+      grid-column: span 1;
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .banner-eyebrow {
+      gap: 12px;
+    }
+
+    .eyebrow-line {
+      width: 24px;
+    }
+  }
+</style>

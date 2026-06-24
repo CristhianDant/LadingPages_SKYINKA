@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/sections/Header.astro';
+import HeroContentLeft from '../components/sections/HeroContentLeft.astro';
 import TandemHeroSplit from '../components/sections/TandemHeroSplit.astro';
 import TandemExperience from '../components/sections/TandemExperience.astro';
 import TandemRequirements from '../components/sections/TandemRequirements.astro';
@@ -8,7 +9,6 @@ import TandemIncludes from '../components/sections/TandemIncludes.astro';
 import TandemPricing from '../components/sections/TandemPricing.astro';
 import TandemTerms from '../components/sections/TandemTerms.astro';
 import TandemLocations from '../components/sections/TandemLocations.astro';
-import BMICalculator from '../components/interactive/BMICalculator.astro';
 import FAQAccordion from '../components/interactive/FAQAccordion.astro';
 import TandemCTA from '../components/sections/TandemCTA.astro';
 import Footer from '../components/sections/Footer.astro';
@@ -23,12 +23,18 @@ import WhatsappLogo from '../components/ui/WhatsappLogo.astro';
   <Header />
   <MenuOverlay />
   <main>
-    <TandemHeroSplit />
-    <TandemExperience />
-    <TandemRequirements />
-    <TandemIncludes />
+    <div class="tandem-sticky-wrapper">
+      <div class="tandem-sticky-left">
+        <HeroContentLeft />
+      </div>
+      <div class="tandem-sticky-right">
+        <TandemHeroSplit />
+        <TandemExperience />
+        <TandemRequirements />
+        <TandemIncludes />
+      </div>
+    </div>
     <TandemPricing />
-    <BMICalculator />
     <TandemTerms />
     <TandemLocations />
     <FAQAccordion />
@@ -37,3 +43,57 @@ import WhatsappLogo from '../components/ui/WhatsappLogo.astro';
   <Footer />
   <WhatsappLogo />
 </BaseLayout>
+
+<style is:global>
+  .tandem-sticky-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 84px;
+  }
+
+  .tandem-sticky-left {
+    position: sticky;
+    top: 84px;
+    width: 50vw;
+    min-width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+    align-self: flex-start;
+  }
+
+  .tandem-sticky-right {
+    flex: 1;
+    width: 50vw;
+  }
+
+  .tandem-sticky-right .experience-grid,
+  .tandem-sticky-right .requirements-layout,
+  .tandem-sticky-right .includes-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  @media (max-width: 1024px) {
+    .tandem-sticky-wrapper {
+      flex-direction: column;
+      margin-top: 0;
+    }
+
+    .tandem-sticky-left {
+      position: static;
+      width: 100%;
+      min-width: 100%;
+      height: 70vh;
+      min-height: 600px;
+    }
+
+    .tandem-sticky-right {
+      width: 100%;
+    }
+
+    .tandem-sticky-right .experience-grid,
+    .tandem-sticky-right .requirements-layout,
+    .tandem-sticky-right .includes-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

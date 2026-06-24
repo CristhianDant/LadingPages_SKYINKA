@@ -1,0 +1,155 @@
+---
+const requirements = [
+  'Aprobar el curso teórico-práctico de paracaidismo',
+  'Estar orientado en espacio, tiempo y lugar',
+  'NO haber realizado buceo SCUBA en las últimas 72 horas previas al salto',
+  'Peso máximo: 95 kg (Si excedes este límite, consulta previamente)',
+  'Talla máxima: 1.85 m (Si excedes este límite, consulta previamente)',
+  'Libre de consumo de alcohol y drogas: No consumir mínimo 72 horas antes del salto',
+  'Buen estado de salud y control total de extremidades superiores e inferiores',
+  'Menores de edad: Desde 16 años cumplidos, con permiso notarial y presencia el día del salto, de uno de los padres o apoderados'
+];
+---
+
+<section id="requisitos" class="requirements-section">
+  <div class="req-container">
+    <div class="req-header">
+      <span class="req-tag">Información importante</span>
+      <h2 class="req-title">Requisitos</h2>
+      <p class="req-subtitle">
+        Condiciones necesarias para participar en el Programa Regular de Caída Libre.
+        Lee atentamente antes de reservar.
+      </p>
+    </div>
+
+    <ul class="req-list">
+      {requirements.map((req, index) => (
+        <li class="req-item" style={`animation-delay: ${index * 0.06}s`}>
+          <span class="req-bullet">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 7.5L5.5 11L12 3" stroke="#4D7CEA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="req-text">{req}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .requirements-section {
+    background-color: var(--white);
+  }
+
+  .req-container {
+    padding: 64px 40px 48px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .req-header {
+    margin-bottom: 36px;
+  }
+
+  .req-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 12px;
+  }
+
+  .req-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 42px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .req-subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-text);
+  }
+
+  .req-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 20px;
+    border-left: 2px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: reqFadeIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+
+  @keyframes reqFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .req-item:hover {
+    background: rgba(77, 124, 234, 0.04);
+    border-left-color: var(--primary-blue);
+  }
+
+  .req-bullet {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(77, 124, 234, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .req-item:hover .req-bullet {
+    background: rgba(77, 124, 234, 0.15);
+    transform: scale(1.1);
+  }
+
+  .req-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-text);
+  }
+
+  @media (max-width: 768px) {
+    .req-container {
+      padding: 48px 20px 36px;
+    }
+
+    .req-item {
+      padding: 12px 16px;
+    }
+
+    .req-text {
+      font-size: 13px;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import StaffGrid from '../components/sections/StaffGrid.astro';
+import Footer from '../components/sections/Footer.astro';
+import MenuOverlay from '../components/interactive/MenuOverlay.astro';
+import WhatsappLogo from '../components/ui/WhatsappLogo.astro';
+---
+
+<BaseLayout
+  title="Nuestro Equipo - Skydive Inka Perú"
+  description="Conoce al equipo de profesionales de Skydive Inka Perú. Instructores certificados, pilotos tándem y personal especializado en paracaidismo deportivo."
+>
+  <Header />
+  <MenuOverlay />
+  <main>
+    <StaffGrid />
+  </main>
+  <Footer />
+  <WhatsappLogo />
+</BaseLayout>

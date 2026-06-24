@@ -35,16 +35,6 @@ const requirements = [
         <p class="requirements-desc">
           Participantes deben cumplir todos los requisitos y completar el waiver. Tu seguridad es nuestra prioridad.
         </p>
-        <div class="requirements-bmi">
-          <h3 class="bmi-title">Calculadora de IMC</h3>
-          <p class="bmi-desc">Verifica si cumples con el peso recomendado</p>
-          <a href="#calculadora-imc" class="bmi-link">
-            Calcular mi IMC
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
       </div>
       <div class="requirements-right">
         {requirements.map((req, index) => (
@@ -136,51 +126,6 @@ const requirements = [
     line-height: 1.7;
     color: var(--gray-text);
     margin-bottom: 32px;
-  }
-
-  .requirements-bmi {
-    padding: 24px;
-    background-color: var(--bg-celeste);
-    border-left: 4px solid var(--primary-blue);
-  }
-
-  .bmi-title {
-    font-family: var(--font-header);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-
-  .bmi-desc {
-    font-family: var(--font-body);
-    font-size: 13px;
-    color: var(--gray-text);
-    margin-bottom: 16px;
-  }
-
-  .bmi-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-header);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--primary-blue);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-
-  .bmi-link:hover {
-    color: var(--primary-dark);
-  }
-
-  .bmi-link:hover svg {
-    transform: translateX(4px);
-  }
-
-  .bmi-link svg {
-    transition: transform 0.3s ease;
   }
 
   .requirements-right {

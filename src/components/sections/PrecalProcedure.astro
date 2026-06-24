@@ -1,0 +1,265 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Realizar Pago',
+    description: 'La reserva se realiza con el abono del 50% del valor del curso. El saldo se abona antes de iniciar la clase.'
+  },
+  {
+    number: '02',
+    title: 'Enviar Formulario',
+    description: 'Llenar y enviar los formularios virtuales que te proporcionaremos. Formulario de Inscripción.'
+  },
+  {
+    number: '03',
+    title: 'Confirmación',
+    description: 'Confirmación de inscripción: Recibirás un mensaje de validación con tus datos personales.'
+  },
+  {
+    number: '04',
+    title: 'Certificación',
+    description: 'Certificación del curso: Se emitirá una carta oficial que avala la finalización del programa (necesaria para solicitar la licencia de alumno paracaidista).'
+  },
+  {
+    number: '05',
+    title: 'Tramitar Licencia de Alumno',
+    description: 'Para tramitar licencia de Alumno Paracaidista: Deberá presentarse en la Oficina de Licencias de la DGAC/MTC con la siguiente documentación: Fotos tamaño pasaporte a colores, declaración jurada de NO tener antecedentes policiales y/o penales (se proporcionará para impresión y firma), formulario DGAC (se proporcionará para impresión y firma), pago en la caja del MTC (aprox. S/.50 por trámite), copia del DNI. Entrega de documentos: Se presentarán en la Mesa de Partes del MTC, donde recibirás contraseña para monitoreo en línea. En un plazo de 5 días hábiles, podrás recoger tu licencia de Alumno Paracaidista. Una vez que tengas la licencia, envía una copia al correo curso@paracaidismo.pe.'
+  }
+];
+---
+
+<section id="procedimiento" class="procedure-section">
+  <div class="procedure-container">
+    <div class="procedure-header">
+      <span class="procedure-tag">Reserva tu vacante</span>
+      <h2 class="procedure-title">Procedimiento para<br />Reservar Vacante</h2>
+      <p class="procedure-subtitle">
+        Sigue estos 5 pasos para asegurar tu lugar en el próximo programa PRECAL.
+      </p>
+    </div>
+
+    <div class="procedure-timeline">
+      {steps.map((step, index) => (
+        <div class="timeline-step">
+          <div class="timeline-marker">
+            <div class="marker-line"></div>
+            <div class="marker-circle">
+              <span class="marker-number">{step.number}</span>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-step-title">{step.title}</h3>
+            <p class="timeline-step-desc">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="procedure-cta">
+      <a href="https://skipperu.odoo.com/precal" class="btn-procedure" target="_blank" rel="noopener">
+        Reservar Ahora
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .procedure-section {
+    background-color: var(--bg-celeste);
+  }
+
+  .procedure-container {
+    padding: 80px 20px;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  .procedure-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .procedure-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 14px;
+  }
+
+  .procedure-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 52px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .procedure-subtitle {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gray-text);
+  }
+
+  .procedure-timeline {
+    max-width: 760px;
+    margin: 0 auto 48px;
+  }
+
+  .timeline-step {
+    display: flex;
+    gap: 24px;
+    position: relative;
+  }
+
+  .timeline-step:last-child .marker-line {
+    height: 50%;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 48px;
+  }
+
+  .marker-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(180deg, var(--primary-blue) 0%, rgba(77, 124, 234, 0.15) 100%);
+    min-height: 20px;
+  }
+
+  .marker-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 6px rgba(77, 124, 234, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-step:hover .marker-circle {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(77, 124, 234, 0.2);
+  }
+
+  .marker-number {
+    font-family: var(--font-header);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .timeline-content {
+    padding: 0 0 40px 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .timeline-step:last-child .timeline-content {
+    padding-bottom: 0;
+  }
+
+  .timeline-step-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .timeline-step:hover .timeline-step-title {
+    color: var(--primary-blue);
+  }
+
+  .timeline-step-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--gray-text);
+  }
+
+  .procedure-cta {
+    text-align: center;
+  }
+
+  .btn-procedure {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 40px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-procedure:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .btn-procedure:hover svg {
+    transform: translateX(4px);
+  }
+
+  .btn-procedure svg {
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .procedure-container {
+      padding: 56px 16px;
+    }
+
+    .procedure-header {
+      margin-bottom: 40px;
+    }
+
+    .timeline-step {
+      gap: 16px;
+    }
+
+    .timeline-marker {
+      width: 36px;
+    }
+
+    .marker-circle {
+      width: 36px;
+      height: 36px;
+    }
+
+    .marker-number {
+      font-size: 13px;
+    }
+
+    .timeline-step-title {
+      font-size: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,241 @@
+---
+const faqs = [
+  {
+    question: '¿Cuánto dura el curso teórico del PRECAL?',
+    answer: 'La Fase I consiste en clases teóricas presenciales de 6 a 8 horas académicas, 100% gratuitas. Se imparten en Lima, generalmente los sábados o lunes de 2pm a 10pm.'
+  },
+  {
+    question: '¿Dónde se realiza el entrenamiento práctico y el salto?',
+    answer: 'Las Fases II, III y IV se desarrollan en Paracas, provincia de Pisco, departamento de Ica. El punto de encuentro es el Hotel El Zarcillo. El salto se realiza desde el Aeropuerto Internacional de Pisco y la zona de aterrizaje es ADRENARENA (Km 253 Panamericana Sur).'
+  },
+  {
+    question: '¿Cuántos saltos necesito para obtener la licencia A Novel?',
+    answer: 'Debes realizar 34 saltos en forma progresiva luego de tu primer salto. Cada salto adicional tiene un costo de S/.402.00 soles. Durante esta progresión aprenderás a ser tu propio Maestro de Salto y a doblar y empacar tu paracaídas.'
+  },
+  {
+    question: '¿Qué documentación necesito para tramitar la licencia?',
+    answer: 'Necesitas: fotos tamaño pasaporte a colores, declaración jurada de NO tener antecedentes policiales/penales, formulario DGAC, comprobante de pago en caja del MTC (aprox. S/.50) y copia del DNI. Los documentos se presentan en Mesa de Partes del MTC. Recibirás tu licencia en 5 días hábiles.'
+  },
+  {
+    question: '¿Puedo reprogramar mi participación en el curso?',
+    answer: 'Sí, las reprogramaciones se aceptan con un mínimo de 72 horas de anticipación. No cumplir con este plazo resultará en la separación del curso y la pérdida total de la inversión, sin opción a reembolso. La asistencia a todas las fases es obligatoria.'
+  },
+  {
+    question: '¿Qué sucede si el clima no es favorable para el salto?',
+    answer: 'El salto puede ser suspendido o reprogramado por factores climáticos o técnicos. En estos casos NO realizamos reembolsos, reprogramamos la actividad para la siguiente fecha disponible.'
+  },
+  {
+    question: '¿Cuál es el peso y talla máxima permitida?',
+    answer: 'Peso máximo: 95 kg. Talla máxima: 1.85 m. Si excedes alguno de estos límites, debes consultar previamente para evaluar la viabilidad de tu participación.'
+  },
+  {
+    question: '¿Qué métodos de pago aceptan?',
+    answer: 'Transferencia bancaria (sin recargo), tarjeta de crédito o débito con link de pago (recargo del 5%), o pago en efectivo el día del salto (sin reserva, sujeto a disponibilidad). La reserva se realiza con el 50% del valor del curso. Se da prioridad a quienes tengan reserva confirmada.'
+  },
+  {
+    question: '¿Cuánto cuesta el video del salto?',
+    answer: 'El video del salto tiene un valor de S/.220 soles + IGV. Debes solicitarlo el día del salto. Skydive Inka Perú es propietario de los videos e imágenes, entrega copias en 5 días hábiles después del salto y se reserva el derecho de utilizar imágenes con fines de difusión.'
+  },
+  {
+    question: '¿Qué debo llevar el día del curso práctico y salto?',
+    answer: 'Ropa deportiva, sin objetos de valor ni accesorios metálicos (prohibido aretes, anillos, cadenas). NO consumir alcohol y/o drogas mínimo 72 horas antes. Evitar lácteos antes del salto. Consumir alimentos ligeros, nutritivos e hidratantes.'
+  }
+];
+---
+
+<section id="faq" class="precal-faq" x-data="{ openIndex: null }">
+  <div class="faq-container">
+    <div class="faq-header">
+      <span class="faq-tag">Preguntas Frecuentes</span>
+      <h2 class="faq-title">
+        Resuelve tus dudas<br />
+        <span class="faq-accent">sobre el programa</span>
+      </h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            @click={`openIndex = openIndex === ${index} ? null : ${index}`}
+          >
+            <span class="faq-question-text">{faq.question}</span>
+            <span class="faq-icon" :class={`{ 'open': openIndex === ${index} }`}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </span>
+          </button>
+          <div
+            class="faq-answer"
+            x-show={`openIndex === ${index}`}
+            x-collapse
+          >
+            <p class="faq-answer-text">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="faq-cta-block">
+      <p class="faq-cta-text">¿Tienes más preguntas?</p>
+      <a href="https://wa.me/51995955412" class="btn-faq-whatsapp" target="_blank" rel="noopener">
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .precal-faq {
+    background-color: var(--white);
+    padding: var(--section-padding) 0;
+  }
+
+  .faq-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .faq-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 40px;
+  }
+
+  .faq-tag::before,
+  .faq-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background-color: var(--primary-blue);
+  }
+
+  .faq-tag::before { left: 0; }
+  .faq-tag::after { right: 0; }
+
+  .faq-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 400;
+  }
+
+  .faq-accent {
+    color: var(--primary-blue);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto 48px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-header);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: var(--transition);
+  }
+
+  .faq-question:hover {
+    color: var(--primary-blue);
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-icon.open {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    overflow: hidden;
+  }
+
+  .faq-answer-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    padding-bottom: 24px;
+  }
+
+  .faq-cta-block {
+    text-align: center;
+    padding: 48px;
+    background-color: var(--bg-celeste);
+  }
+
+  .faq-cta-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+  }
+
+  .btn-faq-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--whatsapp-green);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .btn-faq-whatsapp:hover {
+    background-color: #1da851;
+  }
+
+  @media (max-width: 768px) {
+    .precal-faq {
+      padding: 48px 0;
+    }
+
+    .faq-question {
+      padding: 20px 0;
+      font-size: 15px;
+    }
+
+    .faq-cta-block {
+      padding: 32px 24px;
+    }
+  }
+</style>

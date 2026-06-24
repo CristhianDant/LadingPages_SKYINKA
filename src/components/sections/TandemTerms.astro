@@ -1,13 +1,23 @@
 ---
+const packageXIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="m16.5 14.5 5 5"/><path d="m16.5 19.5 5-5"/><path d="M21 10.5V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.13-.074"/><path d="M3.29 7 12 12l8.71-5"/><path d="m7.5 4.27 8.997 5.148"/></svg>';
+const mapPinIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>';
+const shirtIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>';
+const fileTextIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>';
+const cameraIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>';
+const shieldCheckIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>';
+const creditCardIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>';
+
 const terms = [
   {
     title: 'Servicios Adicionales No Incluidos',
+    icon: packageXIcon,
     items: [
       'Transporte a Paracas, alojamiento y alimentación'
     ]
   },
   {
     title: 'Instrucciones Específicas',
+    icon: mapPinIcon,
     items: [
       'Punto de encuentro: Hotel "El Zarcillo", en Paracas',
       'Hora de presentación: 05:00 A.M.',
@@ -21,6 +31,7 @@ const terms = [
   },
   {
     title: 'Vestimenta y Alimentación',
+    icon: shirtIcon,
     items: [
       'Ropa deportiva, sin objetos de valor, bloqueador',
       'Prohibido el uso de aretes, anillos, cadenas, prendas metálicas',
@@ -30,6 +41,7 @@ const terms = [
   },
   {
     title: 'Formularios y Documentación',
+    icon: fileTextIcon,
     items: [
       'Llenar los formularios virtuales sobre declaración jurada de buena salud y waiver',
       'Si no está de acuerdo con algún punto, desista de saltar'
@@ -37,6 +49,7 @@ const terms = [
   },
   {
     title: 'Políticas de Imágenes y Derechos',
+    icon: cameraIcon,
     items: [
       'SKYDIVE INKA PERÚ es propietario de las fotografías y videos generados durante el embarque, vuelo y lanzamiento',
       'Nos reservamos el derecho de emplearlos para promoción y difusión del Paracaidismo',
@@ -45,6 +58,7 @@ const terms = [
   },
   {
     title: 'Responsabilidad',
+    icon: shieldCheckIcon,
     items: [
       'Cualquier imprecisión respecto del estado de salud física y mental es exclusivamente responsable de cualquier incidente',
       'Cualquier duda, consulte con un profesional especialista'
@@ -52,6 +66,7 @@ const terms = [
   },
   {
     title: 'Métodos de Pago',
+    icon: creditCardIcon,
     items: [
       'Transferencia bancaria (sin recargo)',
       'Tarjeta de crédito o débito (link de pago con recargo del 5%)',
@@ -71,17 +86,31 @@ const terms = [
         <span class="terms-accent">antes de saltar</span>
       </h2>
     </div>
-    <div class="terms-grid">
-      {terms.map((section) => (
-        <div class="term-section">
-          <h3 class="term-section-title">{section.title}</h3>
-          <ul class="term-list">
-            {section.items.map((item) => (
-              <li class="term-item">{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div class="terms-tabs" x-data="{ activeTab: 0 }">
+      <div class="tabs-bar">
+        {terms.map((section, index) => (
+          <button
+            class="tab-btn"
+            :class="{ 'active': activeTab === index }"
+            @click={`activeTab = ${index}`}
+          >
+            <span class="tab-icon" set:html={section.icon} />
+            <span class="tab-label">{section.title}</span>
+          </button>
+        ))}
+      </div>
+      <div class="tab-panels">
+        {terms.map((section, index) => (
+          <div class="terms-card" x-show={`activeTab === ${index}`} x-transition:enter.duration.200ms>
+            <h3 class="card-title">{section.title}</h3>
+            <ul class="card-list">
+              {section.items.map((item) => (
+                <li class="card-item">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
     <div class="terms-steps">
       <h3 class="steps-title">Pasos para Reservar tu Salto</h3>
@@ -174,49 +203,110 @@ const terms = [
     color: var(--primary-blue);
   }
 
-  .terms-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+  .terms-tabs {
     margin-bottom: 64px;
   }
 
-  .term-section {
-    padding: 32px;
-    background-color: var(--bg-celeste);
-  }
-
-  .term-section-title {
-    font-family: var(--font-header);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--primary-blue);
-  }
-
-  .term-list {
+  .tabs-bar {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-bottom: 32px;
+    padding-bottom: 4px;
   }
 
-  .term-item {
-    font-family: var(--font-body);
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--gray-text);
-    padding-left: 20px;
+  .tabs-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: none;
+    border: 2px solid var(--gray-light);
+    border-radius: 0;
+    font-family: var(--font-header);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-medium);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .tab-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+
+  .tab-btn.active {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--text-primary);
+  }
+
+  .tab-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .tab-icon :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .tab-panels {
     position: relative;
   }
 
-  .term-item::before {
-    content: '•';
+  .terms-card {
+    padding: 40px;
+    background-color: var(--bg-celeste);
+    border-left: 4px solid var(--primary-blue);
+  }
+
+  .card-title {
+    font-family: var(--font-header);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--primary-blue);
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card-item {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .card-item::before {
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--primary-blue);
-    font-weight: 700;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
   }
 
   .terms-steps {
@@ -288,12 +378,13 @@ const terms = [
   }
 
   @media (max-width: 1024px) {
-    .terms-grid {
+    .steps-grid {
       grid-template-columns: 1fr;
     }
 
-    .steps-grid {
-      grid-template-columns: 1fr;
+    .tabs-bar {
+      flex-wrap: wrap;
+      overflow-x: visible;
     }
   }
 
@@ -302,8 +393,40 @@ const terms = [
       padding: 48px 0;
     }
 
-    .term-section {
+    .tabs-bar {
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      padding: 8px 14px;
+      font-size: 11px;
+    }
+
+    .tab-icon :global(svg) {
+      width: 16px;
+      height: 16px;
+    }
+
+    .terms-card {
       padding: 24px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+    }
+
+    .card-item {
+      font-size: 14px;
+      padding-left: 20px;
+    }
+
+    .card-item::before {
+      top: 8px;
+      width: 5px;
+      height: 5px;
     }
 
     .step-item {

@@ -1,0 +1,156 @@
+---
+const services = [
+  'Ticket de avión para el primer salto desde aeronave en vuelo',
+  'Instructor de paracaidismo certificado con acreditación oficial',
+  '12 horas de clases teóricas y prácticas con equipamiento especializado',
+  'Transporte terrestre de Paracas al aeropuerto de Pisco (15 min)',
+  'Sistema de comunicación Instructor-Alumno para orientar al alumno paracaidista en los primeros saltos',
+  'Maestro de salto asignado para supervisión y acompañamiento en el primer salto',
+  'Transporte terrestre de la zona de aterrizaje (ADRENARENA) a Paracas (25 min)',
+  'Equipo de recuperación en tierra',
+  'Certificación oficial de haber completado y aprobado el curso, requisito para la tramitación de la licencia de alumno paracaidista en la DGAC'
+];
+---
+
+<section id="servicios" class="includes-section">
+  <div class="includes-container">
+    <div class="includes-header">
+      <span class="includes-tag">Incluido en el programa</span>
+      <h2 class="includes-title">Servicios<br />Incluídos</h2>
+      <p class="includes-subtitle">
+        Todo lo que necesitas para iniciar tu formación como paracaidista está cubierto.
+        Solo preocúpate por llegar puntual y con muchas ganas.
+      </p>
+    </div>
+
+    <ul class="includes-list">
+      {services.map((service, index) => (
+        <li class="includes-item" style={`animation-delay: ${index * 0.07}s`}>
+          <span class="includes-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8.5L6.5 12L13 4" stroke="#4D7CEA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="includes-text">{service}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .includes-section {
+    background-color: var(--bg-dark);
+  }
+
+  .includes-container {
+    padding: 64px 40px 56px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .includes-header {
+    margin-bottom: 36px;
+  }
+
+  .includes-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-light);
+    margin-bottom: 12px;
+  }
+
+  .includes-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 42px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .includes-subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .includes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .includes-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 20px;
+    border-left: 2px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: incFadeIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+
+  @keyframes incFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .includes-item:hover {
+    background: rgba(77, 124, 234, 0.06);
+    border-left-color: var(--primary-blue);
+  }
+
+  .includes-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(77, 124, 234, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .includes-item:hover .includes-icon {
+    background: rgba(77, 124, 234, 0.22);
+    transform: scale(1.1);
+  }
+
+  .includes-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .includes-container {
+      padding: 48px 20px 40px;
+    }
+
+    .includes-item {
+      padding: 12px 16px;
+    }
+
+    .includes-text {
+      font-size: 13px;
+    }
+  }
+</style>

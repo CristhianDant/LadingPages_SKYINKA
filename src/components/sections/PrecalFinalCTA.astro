@@ -1,0 +1,165 @@
+---
+---
+
+<section class="final-cta">
+  <img src="/images/avionalumnos.jpg" alt="Paracaidistas junto al avión" class="final-cta-bg" />
+  <div class="final-cta-overlay"></div>
+  <div class="final-cta-container">
+    <div class="final-cta-content">
+      <h2 class="final-cta-title">
+        ¿Aún no te animas a cursar<br />
+        el programa de paracaidismo?
+      </h2>
+      <p class="final-cta-desc">
+        Vive la experiencia con toda la seguridad. Salta con un instructor certificado
+        en tándem y siente la adrenalina de la caída libre sin necesidad de curso previo.
+      </p>
+      <div class="final-cta-actions">
+        <a href="/salto-tandem" class="final-btn-primary">
+          Ver Salto Tándem
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/51995955412" class="final-btn-secondary" target="_blank" rel="noopener">
+          Contactar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .final-cta-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .final-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(27, 27, 25, 0.95) 0%,
+      rgba(27, 27, 25, 0.75) 50%,
+      rgba(27, 27, 25, 0.4) 100%
+    );
+  }
+
+  .final-cta-container {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 80px var(--container-padding-x);
+    width: 100%;
+  }
+
+  .final-cta-content {
+    max-width: 620px;
+  }
+
+  .final-cta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .final-cta-desc {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+  }
+
+  .final-cta-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  .final-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .final-btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .final-btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .final-btn-primary svg {
+    transition: transform 0.3s ease;
+  }
+
+  .final-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 36px;
+    background-color: transparent;
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--text-primary);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+
+  .final-btn-secondary:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-dark);
+  }
+
+  @media (max-width: 768px) {
+    .final-cta {
+      min-height: 400px;
+    }
+
+    .final-cta-container {
+      padding: 60px var(--container-padding-x);
+    }
+
+    .final-cta-actions {
+      flex-direction: column;
+    }
+
+    .final-btn-primary,
+    .final-btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

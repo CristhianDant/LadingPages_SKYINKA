@@ -28,6 +28,7 @@ pnpm-debug.log*
 .opencode/
 .playwright-mcp/
 openspec/
+.kiro/
 
 # python
 *.pyc
